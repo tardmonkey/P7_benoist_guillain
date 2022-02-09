@@ -27,8 +27,8 @@ const app = express();
 // or : http://expressjs.com/en/resources/middleware/cors.html
 // CORS midWare general | default options // allows app to access to API
 app.use((req, res, next) => {
-  // res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader(
     "Access-Control-Allow-Headers",
@@ -40,6 +40,8 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+
 
 // for parsing body application/json
 app.use(express.json());

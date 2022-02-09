@@ -1,4 +1,4 @@
-<template>
+<template><div>
   <div
     class="homepage__onLoad"
     :class="{ 'homepage__onLoad--active': loginAnimation }"
@@ -11,7 +11,7 @@
         class="homepage__onLoad--msg"
         :class="{ 'homepage__onLoad--msg--active': loginAnimation }"
       >
-        Hello,<br />
+        Bonjour,<br />
         {{ loggedUsername }}!
       </div>
     </div>
@@ -22,13 +22,13 @@
         <img src="../../images/logo-greenLight.svg" />
       </div>
       <h1 class="card__title">
-        Hey,<br />
-        <span class="card_title--accent">Login</span> Now.
+        Connexion
+        
       </h1>
       <p class="card__subtitle">
-        Tu n'as pas encore de compte /
+        Pas encore inscrit ?
         <span class="card__cta"
-          ><router-link to="/signup">Créer un compte</router-link></span
+          ><router-link to="/signup">Créez un compte pour nous rejoindre</router-link></span
         >
       </p>
       <div class="form-row">
@@ -62,7 +62,8 @@
       </div>
     </div>
   </div>
-</template>
+          
+</div></template>
 
 <script>
 import axios from "axios";

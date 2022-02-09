@@ -1,37 +1,21 @@
-// [=>]  IMPORT SECT.
-// -
-const express = require("express");
-const checkPassword = require("../middleware/checkPassword");
-const authn = require("../middleware/authn");
+const express = require("express")
+const checkPassword = require("../middleware/checkPassword")
+const authn = require("../middleware/authn")
+const limit = require("../middleware/express-rate-limit-config");
+const router = express.Router()
 
-// [=>]  CREATE ROUTER
-// -
-const router = express.Router();
+//Appel du controller User
+const userCtrl = require("../controllers/userCtrl.js")
 
-const userCtrl = require("../controllers/userCtrl.js");
+router.post("/signup", checkPassword, userCtrl.signup)
+router.post("/login", limit, userCtrl.login)
+router.post("/logout", authn, userCtrl.logout)
 
-// [=>]  Middlewares
-// -
+router.get("/", authn, userCtrl.findAll)
+router.get("/:id", authn, userCtrl.findOne)
 
-// POST request => signUp
-router.post("/signup", checkPassword, userCtrl.signup);
+router.put("/:id", authn, userCtrl.updateOne)
 
-// POST request => logIn
-router.post("/login", userCtrl.login);
+router.delete("/:id", authn, userCtrl.deleteOne)
 
-// GET request => logOut function
-router.post("/logout", authn, userCtrl.logout);
-
-// GET Requests
-router.get("/", authn, userCtrl.findAll);
-router.get("/:id", authn, userCtrl.findOne);
-
-// PUT request => update user profile
-router.put("/:id", authn, userCtrl.updateOne);
-
-// DELETE request => delete user
-router.delete("/:id", authn, userCtrl.deleteOne);
-
-// [=>] EXPORT Router
-// -
-module.exports = router;
+module.exports = router

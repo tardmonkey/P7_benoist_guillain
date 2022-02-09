@@ -1,15 +1,8 @@
-// [=>] IMPORT SECT.
-// 'http' node package
 const http = require("http");
-// 'express' App
 const app = require("./app");
-// dotEnv variables
 const dotEnv = require("dotenv").config({ path: "./config/.env" });
-// database config
 const { sequelize } = require("./config/database");
 
-// [=>] SERVER SECT.
-// returns a valid PORT as a nbr or a string
 const normalizePort = (val) => {
   const port = parseInt(val, 10);
 
@@ -21,12 +14,12 @@ const normalizePort = (val) => {
   }
   return false;
 };
-// env variable | setting up default port
+
 const port = normalizePort(process.env.PORT);
-// tells express which port to set
+
 app.set("port", port);
 
-// [=>] ERROR SECT.
+
 const errorHandler = (error) => {
   if (error.syscall !== "listen") {
     throw error;
@@ -54,16 +47,14 @@ const listeningHandler = () => {
   console.log("Listening on " + bind);
 };
 
-// [=>] CREATE Server
-// app = function => receives req & res
+
 const server = http.createServer(app);
 
 server.on("error", errorHandler);
 server.on("listening", listeningHandler);
+server.listen(port);
 
-(async function () {
-  await sequelize.sync({ alter: true });
-
-  // [=>] LISTEN Server on chosen port
-  server.listen(port);
-})();
+// (async function () {
+//   await sequelize.sync({ alter: true }); 
+  
+// })();

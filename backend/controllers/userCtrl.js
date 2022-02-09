@@ -26,7 +26,6 @@ exports.findOne = async function (req, res, next) {
 }
 
 exports.signup = async function (req, res, next) {
-  console.log("=> Signup function")
 
   let profilepicDefault = "../../frontend/images/profilepicturedefault.png"
   
