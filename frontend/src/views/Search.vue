@@ -90,6 +90,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@import "../variables.scss";
+
 .homepage__onLoad {
   position: fixed;
   width: 100%;

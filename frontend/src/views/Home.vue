@@ -87,18 +87,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@import "../variables.scss";
+
 .homepage__onLoad {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: var(--greenLight);
+  background: $greenLight;
   z-index: 9999;
   animation: slidesIn 1s forwards ease-in-out;
 }
 @keyframes slidesIn {
   0% {
     visibility: visible;
-    background: var(--greenLight);
+    background: $greenLight;
     overflow-x: hidden;
     overflow-y: hidden;
     z-index: 9999999;

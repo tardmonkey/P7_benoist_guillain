@@ -107,7 +107,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+@import "../variables.scss";
+
 .card__body {
   display: flex;
   align-items: center;

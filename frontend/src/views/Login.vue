@@ -1,69 +1,60 @@
 <template><div>
-  <div
-    class="homepage__onLoad"
-    :class="{ 'homepage__onLoad--active': loginAnimation }"
-  >
-    <div
-      class="homepage__onLoad--container"
-      :class="{ 'homepage__onLoad--container--active': loginAnimation }"
-    >
-      <div
-        class="homepage__onLoad--msg"
-        :class="{ 'homepage__onLoad--msg--active': loginAnimation }"
-      >
-        Bonjour,<br />
-        {{ loggedUsername }}!
+    <div class="homepage__onLoad" :class="{ 'homepage__onLoad--active': loginAnimation }">
+      <div class="homepage__onLoad--container" :class="{ 'homepage__onLoad--container--active': loginAnimation }">
+        <div class="homepage__onLoad--msg" :class="{ 'homepage__onLoad--msg--active': loginAnimation }">
+          Bonjour,<br />
+          {{ loggedUsername }}!
+        </div>
       </div>
     </div>
-  </div>
-  <div class="card__body">
-    <div class="card">
-      <div class="card__loginLogo">
-        <img src="../../images/logo-greenLight.svg" />
-      </div>
-      <h1 class="card__title">
-        Connexion
-        
-      </h1>
-      <p class="card__subtitle">
-        Pas encore inscrit ?
-        <span class="card__cta"
-          ><router-link to="/signup">Créez un compte pour nous rejoindre</router-link></span
-        >
-      </p>
-      <div class="form-row">
-        <input
-          v-model="email"
-          class="form-row__input"
-          type="text"
-          placeholder="Adresse mail"
-          required
-        />
-      </div>
-      <div class="form-row">
-        <input
-          v-model="password"
-          class="form-row__input"
-          type="password"
-          placeholder="Mot de passe"
-          required
-        />
-      </div>
+    <div class="card__body">
+      <div class="card">
+        <div class="card__loginLogo">
+          <img src="../../images/logo-greenLight.svg" />
+        </div>
+        <h1 class="card__title">
+          Connexion
+        </h1>
+        <p class="card__subtitle">
+          Pas encore inscrit ?
+          <span class="card__cta"
+            ><router-link to="/signup"
+              >Créez un compte pour nous rejoindre</router-link
+            ></span
+          >
+        </p>
+        <div class="form-row">
+          <input
+            v-model="email"
+            class="form-row__input"
+            type="text"
+            placeholder="Adresse mail"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <input
+            v-model="password"
+            class="form-row__input"
+            type="password"
+            placeholder="Mot de passe"
+            required
+          />
+        </div>
 
-      <div class="form-row">
-        <button
-          @click="loginUser()"
-          class="button"
-          :class="{ 'button--disabled': !checkInputs }"
-          aria-label="login"
-        >
-          <span>Connexion</span>
-        </button>
+        <div class="form-row">
+          <button
+            @click="loginUser()"
+            class="button"
+            :class="{ 'button--disabled': !checkInputs }"
+            aria-label="login"
+          >
+            <span>Connexion</span>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-          
-</div></template>
+  </div></template>
 
 <script>
 import axios from "axios";
@@ -89,7 +80,6 @@ export default {
   },
   methods: {
     loginUser: async function() {
-      console.log("loggin-in");
       const API_SERVER = "http://localhost:3000";
       try {
         const response = await axios.post(API_SERVER + `/users/login`, {
@@ -119,6 +109,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@import "../variables.scss";
+
 .homepage__onLoad {
   position: fixed;
   width: 100vw;
@@ -142,13 +135,13 @@ export default {
     opacity: 1;
     overflow-x: hidden;
     overflow-y: hidden;
-    background: var(--greenLight);
+    background:$greenLight;
   }
   100% {
     opacity: 1;
     overflow-x: hidden;
     overflow-y: visible;
-    background: var(--greenLight);
+    background:$greenLight;
     z-index: 9999;
   }
 }
@@ -207,13 +200,13 @@ export default {
     color: transparent;
   }
   40% {
-    color: var(--white);
+    color:white;
   }
   80% {
-    color: var(--white);
+    color:white;
   }
   100% {
-    color: var(--greenLight);
+    color:$greenLight;
   }
 }
 
@@ -223,12 +216,12 @@ export default {
   justify-content: center;
   min-height: 100vh;
   width: 100vw;
-  background: var(--white);
+  background:white;
 }
 .card__loginLogo {
   width: 70vw;
   max-width: 450px;
-  margin-bottom: var(--spaceMed);
+  margin-bottom:$spaceMed;
 }
 
 .form-row {
@@ -241,12 +234,12 @@ export default {
 }
 
 .form-row__input {
-  padding: var(--spaceSml);
+  padding:$spaceSml;
   border: none;
   border-radius: 8px;
-  background: var(--lightGrey);
+  background:$lightGrey;
   font-weight: 500;
-  font-size: var(--body-firstFont);
+  font-size:$body-firstFont;
   flex: 1;
   min-width: 100px;
   color: black;
@@ -254,12 +247,12 @@ export default {
 }
 
 .form-row__input::placeholder {
-  color: var(--greenLight);
+  color:$greenLight;
   opacity: 0.5;
 }
 
 .form-row__input:focus {
-  border: 2px solid var(--greenLight);
+  border: 2px solid $greenLight;
 }
 
 .card {
@@ -270,21 +263,21 @@ export default {
   padding: 32px;
 }
 .card__title {
-  color: var(--darkgrey);
-  font-size: var(--headingThird);
+  color:$darkgrey;
+  font-size:$headingThird;
   font-weight: 900;
-  margin-bottom: var(--spaceSml);
+  margin-bottom:$spaceSml;
   opacity: 0.9;
 }
 .card__subtitle {
-  color: var(--MedGrey);
+  color:$MedGrey;
   font-size: 15px;
   font-weight: 500;
-  margin-bottom: var(--spaceLrg);
+  margin-bottom:$spaceLrg;
 }
 
 .button {
-  background: var(--greenLight);
+  background:$greenLight;
   color: white;
   border-radius: 8px;
   font-weight: 800;
@@ -295,7 +288,7 @@ export default {
   transition: 0.3s background-color;
 }
 .card__cta {
-  color: var(--greenLight);
+  color:$greenLight;
   font-weight: 800;
   transition: opacity 0.3s ease-in-out;
 }
@@ -305,7 +298,7 @@ export default {
 }
 .button:hover {
   cursor: pointer;
-  background: var(--greenPrimary);
+  background:$greenPrimary;
 }
 .button--disabled {
   background: #cecece;
