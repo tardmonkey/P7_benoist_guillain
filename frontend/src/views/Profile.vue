@@ -285,11 +285,9 @@ export default {
       const admin = localStorage.getItem("admin");
 
       if (parsedUserId == this.$route.params.id || admin === "true") {
-        console.log("[=>] Good User!");
 
         return true;
       } else {
-        console.log("[=>] wrong User!");
 
         this.disableProfile = true;
 
@@ -507,14 +505,14 @@ export default {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: var(--white);
+  background: white;
   z-index: 9999;
   animation: slidesIn 0.4s forwards ease-out;
 }
 @keyframes slidesIn {
   0% {
     visibility: visible;
-    background: var(--white);
+    background: white;
     overflow-x: hidden;
     overflow-y: hidden;
     z-index: 9999999;
@@ -540,7 +538,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: var(--white);
+  background: white;
   z-index: -10;
 }
 
@@ -553,8 +551,8 @@ export default {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-bottom-left-radius: var(--spaceMed);
-  border-bottom-right-radius: var(--spaceMed);
+  border-bottom-left-radius: $spaceMed;
+  border-bottom-right-radius: $spaceMed;
   box-shadow: 5px 5px 16px 5px rgba(0, 0, 0, 0.3),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.5);
   margin-top: -300px;
@@ -593,7 +591,7 @@ export default {
 .profile__pictureContainer {
   width: 150px;
   height: 150px;
-  margin-bottom: var(--spaceSml);
+  margin-bottom: $spaceSml;
 }
 
 .profile__picture {
@@ -606,16 +604,16 @@ export default {
 }
 
 .profile__username {
-  font-size: var(--headingThird);
-  color: var(--white);
+  font-size: $headingThird;
+  color: white;
   font-weight: 900;
-  margin-bottom: var(--spaceSml);
+  margin-bottom: $spaceSml;
 }
 
 .profile__infos {
-  font-size: var(--body-firstFont);
+  font-size: $body-firstFont;
   font-weight: 500;
-  color: var(--white);
+  color: white;
   opacity: 0.7;
 }
 
@@ -624,7 +622,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--white);
+  background: white;
 }
 
 .profilepage__wrapper {
@@ -656,39 +654,39 @@ export default {
 }
 
 .profile__descriptionContainer {
-  font-size: var(--body-secondFont);
+  font-size: $body-secondFont;
   font-weight: 600;
-  color: var(--greenPrimary);
-  margin-top: var(--spaceLrg);
-  margin-bottom: var(--spaceLrg);
+  color: $greenPrimary;
+  margin-top: $spaceLrg;
+  margin-bottom: $spaceLrg;
   width: 80vw;
 }
 
 .profile__activityContainer {
   width: 100%;
-  margin-top: var(--spaceMed);
+  margin-top: $spaceMed;
 }
 
 .profile__activityTitle {
-  font-size: var(--body-firstFont);
+  font-size: $body-firstFont;
   font-weight: 600;
-  color: var(--darkgrey);
+  color: $darkgrey;
 }
 
 .post__container {
-  background: var(--white);
+  background: white;
   border-radius: 20px;
   box-shadow: 5px 5px 16px 0 rgba(0, 0, 0, 0.15),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.1);
-  margin-top: var(--spaceMed);
-  // margin-bottom: var(--spaceMed);
+  margin-top: $spaceMed;
+  // margin-bottom: $spaceMed;
 }
 
 .post__container:first-child {
   margin-top: 0px;
 }
 .post__container:last-child {
-  margin-bottom: var(--spaceMed);
+  margin-bottom: $spaceMed;
 }
 
 .userpost__container {
@@ -701,12 +699,12 @@ export default {
   width: 90vw;
 }
 .userpost__title {
-  font-size: var(--headingFirst);
+  font-size: $headingFirst;
   font-weight: 900;
-  color: var(--darkgrey);
+  color: $darkgrey;
 }
 .userpost__title--accent {
-  color: var(--greenLight);
+  color: $greenLight;
 }
 
 // nav & settings menu
@@ -719,9 +717,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--MedGrey);
-  padding-top: var(--spaceLrg);
-  padding-bottom: var(--spaceLrg);
+  background: $MedGrey;
+  padding-top: $spaceLrg;
+  padding-bottom: $spaceLrg;
   transform: translateX(100vw);
   transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
   z-index: 100;
@@ -737,7 +735,7 @@ export default {
 
 .setting__menuWrapper {
   width: 80vw;
-  max-width: var(--maxWidth);
+  max-width: $maxWidth;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -745,7 +743,7 @@ export default {
 }
 
 .setting__menuHeader {
-  margin-bottom: var(--spaceMed);
+  margin-bottom: $spaceMed;
 }
 
 .profilepage__nav {
@@ -760,9 +758,9 @@ export default {
 }
 
 .profilepage__nav--icon {
-  color: var(--white);
-  margin-top: var(--spaceMed);
-  margin-left: var(--spaceMed);
+  color: white;
+  margin-top: $spaceMed;
+  margin-left: $spaceMed;
   transition: opacity 0.2s ease-in-out;
 }
 
@@ -771,8 +769,8 @@ export default {
 }
 
 .profilepage__nav--settings {
-  margin-top: var(--spaceMed);
-  margin-right: var(--spaceMed);
+  margin-top: $spaceMed;
+  margin-right: $spaceMed;
   height: 30px;
   width: 30px;
   transition: all 0.5s ease-in-out;
@@ -780,9 +778,9 @@ export default {
 }
 
 svg {
-  height: var(--spaceMed);
+  height: $spaceMed;
   width: auto;
-  fill: var(--light);
+  fill: $light;
   cursor: pointer;
 }
 
@@ -800,7 +798,7 @@ svg {
   position: fixed;
 }
 .settings__icon--activeColor {
-  fill: var(--greenLight);
+  fill: $greenLight;
 }
 
 .settings__icon--disabled {
@@ -819,35 +817,35 @@ svg {
 .form-row__input {
   min-width: 100px;
   width: 80vw;
-  max-width: var(--maxWidth);
+  max-width: $maxWidth;
   font-weight: 500;
-  font-size: var(--body-firstFont);
+  font-size: $body-firstFont;
   color: black;
-  padding: var(--spaceSml);
+  padding: $spaceSml;
   border-radius: 8px;
   border: 2px solid transparent;
-  background: var(--lightGrey);
+  background: $lightGrey;
 }
 
 .form-row__input::placeholder {
-  color: var(--greenLight);
+  color: $greenLight;
   opacity: 0.5;
 }
 
 .form-row__input:focus {
-  border: 2px solid var(--greenLight);
+  border: 2px solid $greenLight;
 }
 
 .card__title {
-  color: var(--white);
-  font-size: var(--headingThird);
+  color: white;
+  font-size: $headingThird;
   font-weight: 900;
-  margin-bottom: var(--spaceSml);
+  margin-bottom: $spaceSml;
   width: 80vw;
 }
 
 .profile__pictureContainer--setting {
-  margin-bottom: var(--spaceLrg);
+  margin-bottom: $spaceLrg;
 }
 .profile__pictureSetting {
   width: 150px;
@@ -861,12 +859,12 @@ svg {
 
 .cta__container {
   width: 80vw;
-  max-width: var(--maxWidth);
+  max-width: $maxWidth;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: var(--spaceMed);
+  margin-top: $spaceMed;
 }
 
 .button {
@@ -877,7 +875,7 @@ svg {
   border: none;
   width: 150px;
   min-width: 100px;
-  max-width: var(--maxWidth);
+  max-width: $maxWidth;
 
   height: 50px;
   padding: 16px;
@@ -886,19 +884,19 @@ svg {
 }
 
 .btn__updateUser {
-  background: var(--greenSecond);
+  background: $greenSecond;
 }
 
 .btn__updateUser:hover {
-  background: var(--greenPrimary);
+  background: $greenPrimary;
 }
 
 .btn__deleteUser {
-  background: var(--red);
+  background: $red;
 }
 
 .btn__deleteUser:hover {
-  background: var(--darkgrey);
+  background: $darkgrey;
 }
 
 .deleteUser__container {
@@ -955,23 +953,23 @@ svg {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: var(--darkgrey);
+  background: $darkgrey;
 }
 
 .deleteUser__cardContent {
   width: 80vw;
   max-width: 540px;
-  color: var(--light);
+  color: $light;
   font-weight: 900;
-  font-size: var(--headingThird);
+  font-size: $headingThird;
 }
 
 .deleteUser__messageContent {
   width: 80vw;
   max-width: 540px;
-  color: var(--light);
+  color: $light;
   font-weight: 900;
-  font-size: var(--headingThird);
+  font-size: $headingThird;
 }
 
 .deleteUserCard--isActive {
@@ -1002,10 +1000,10 @@ svg {
 }
 @keyframes background_goodbye {
   0% {
-    background: var(--darkgrey);
+    background: $darkgrey;
   }
   100% {
-    background: var(--greenLight);
+    background: $greenLight;
   }
 }
 
@@ -1014,28 +1012,28 @@ svg {
   max-width: 540px;
   display: flex;
   flex-direction: column;
-  margin-top: var(--spaceLrg);
+  margin-top: $spaceLrg;
 }
 
 .deleteUser__btn--yes {
-  margin-bottom: var(--spaceMed);
+  margin-bottom: $spaceMed;
 }
 
 .deleteUser__btn--yes,
 .deleteUser__btn--no {
-  color: var(--red);
+  color: $red;
   width: 80vw;
-  background: var(--light);
+  background: $light;
 }
 
 .deleteUser__btn--yes:hover {
-  color: var(--light);
-  background: var(--red);
+  color: $light;
+  background: $red;
 }
 
 .deleteUser__btn--no:hover {
-  color: var(--light);
-  background: var(--greenLight);
+  color: $light;
+  background: $greenLight;
 }
 
 @media (max-width: 541px) {
@@ -1050,7 +1048,7 @@ svg {
   .post__container {
     border-radius: 0px;
     box-shadow: none;
-    border-top: 5px solid var(--light);
+    border-top: 5px solid $light;
   }
 
   .userpost__wrapper {
@@ -1062,7 +1060,7 @@ svg {
   .button {
     width: 130px;
     min-width: 100px;
-    max-width: var(--maxWidth);
+    max-width: $maxWidth;
     height: 50px;
     padding: 16px;
   }

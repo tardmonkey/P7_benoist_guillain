@@ -10,10 +10,10 @@
     <div class="card__body">
       <div class="card">
         <div class="card__loginLogo">
-          <img src="../../images/logo-greenLight.svg" />
+          <img src="../../images/logo-groupomania.svg" id="imgLogo"/>
         </div>
         <h1 class="card__title">
-          Connexion
+          Connectez vous
         </h1>
         <p class="card__subtitle">
           Pas encore inscrit ?
@@ -111,6 +111,7 @@ export default {
 <style scoped lang="scss">
 
 @import "../variables.scss";
+@import "../mixins.scss";
 
 .homepage__onLoad {
   position: fixed;
@@ -249,6 +250,7 @@ export default {
 .form-row__input::placeholder {
   color:$greenLight;
   opacity: 0.5;
+  font-weight: medium;
 }
 
 .form-row__input:focus {

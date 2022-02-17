@@ -97,14 +97,14 @@ export default {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: var(--greenLight);
+  background: $greenLight;
   z-index: 9999;
   animation: slidesIn 1s forwards ease-in-out;
 }
 @keyframes slidesIn {
   0% {
     visibility: visible;
-    background: var(--greenLight);
+    background: $greenLight;
     overflow-x: hidden;
     overflow-y: hidden;
     z-index: 9999999;
@@ -118,7 +118,7 @@ export default {
     opacity: 0;
     overflow-x: hidden;
     overflow-y: hidden;
-    background: var(--greenLight);
+    background: $greenLight;
   }
   100% {
     z-index: -1;
@@ -126,7 +126,7 @@ export default {
     visibility: hidden;
     overflow-x: hidden;
     overflow-y: visible;
-    background: var(--greenLight);
+    background: $greenLight;
   }
 }
 
@@ -155,7 +155,7 @@ export default {
 }
 
 .nav__icon {
-  fill: var(--light);
+  fill: $light;
   height: 30px;
 }
 
@@ -166,10 +166,10 @@ export default {
 .searchUser {
   min-width: 100px;
   height: 40px;
-  background: var(--light);
+  background: $light;
   font-weight: 600;
-  color: var(--greenLight);
-  font-size: var(--body-firstFont);
+  color: $greenLight;
+  font-size: $body-firstFont;
   border: none;
   border-radius: 25px;
   padding: 16px;
@@ -177,7 +177,7 @@ export default {
 
 .searchUser::placeholder {
   font-weight: 500;
-  color: var(--darkgrey);
+  color: $darkgrey;
   opacity: 0.5;
 }
 
@@ -188,7 +188,7 @@ export default {
 .homepage__container {
   width: 100vw;
   min-height: 100vh;
-  background: var(--greenLight);
+  background: $greenLight;
   padding-top: 100px;
 }
 
@@ -233,7 +233,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--darkgrey);
+  background: $darkgrey;
   opacity: 0.25;
   z-index: 1;
 }
@@ -242,11 +242,11 @@ export default {
   position: absolute;
   bottom: 0;
   left: 0;
-  font-size: var(--firstFont);
+  font-size: $firstFont;
   font-weight: 600;
-  color: var(--light);
-  margin-bottom: var(--spaceMed);
-  margin-left: var(--spaceMed);
+  color: $light;
+  margin-bottom: $spaceMed;
+  margin-left: $spaceMed;
   z-index: 1000;
 }
 

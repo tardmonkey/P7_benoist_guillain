@@ -115,7 +115,7 @@ export default {
     opacity: 0;
     overflow-x: hidden;
     overflow-y: hidden;
-    background: var(--greenLight);
+    background: $greenLight;
   }
   100% {
     z-index: -1;
@@ -123,7 +123,7 @@ export default {
     visibility: hidden;
     overflow-x: hidden;
     overflow-y: visible;
-    background: var(--greenLight);
+    background: $greenLight;
   }
 }
 
@@ -132,18 +132,18 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: var(--spaceMed) 0px var(--spaceMed) 0px;
+  margin: $spaceMed 0px $spaceMed 0px;
 }
 .homepage__wrapper {
   width: 90vw;
 }
 
 .post__container {
-  background: var(--white);
+  background: $white;
   border-radius: 20px;
   box-shadow: 5px 5px 16px 0 rgba(0, 0, 0, 0.15),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.1);
-  margin-top: var(--spaceMed);
+  margin-top: $spaceMed;
 }
 .post__container:first-child {
   margin-top: 0px;
@@ -174,7 +174,7 @@ export default {
 }
 
 .responsiveSpacer {
-  background: var(--light);
+  background: $light;
   width: 100vw;
   height: 30px;
 }
@@ -191,14 +191,14 @@ export default {
   .post__container {
     border-radius: 0px;
     box-shadow: none;
-    border-top: 5px solid var(--light);
+    border-top: 5px solid $light;
     margin-top: 0px;
   }
 
   .responsiveSpacer {
     display: block;
     width: 100vw;
-    background: var(--white);
+    background: $white;
     height: calc(60px + 20px);
   }
 }

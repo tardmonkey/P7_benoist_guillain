@@ -2,17 +2,17 @@
   <div class="card__body">
     <div class="card">
       <div class="card__loginLogo">
-        <img src="../../images/logo-greenLight.svg" />
+        <img src="../../images/logo-groupomania.svg" id="imgLogo"/>
       </div>
       <h1 class="card__title">
-        Hey<span v-if="username" class="card__title--username">{{
+        Bonjour<span v-if="username" class="card__title--username">{{
           username
         }}</span
         >,<br />
-        <span class="card_title--accent">Signup</span> Now.
+        <span class="card_title--accent">Créer un compte</span>
       </h1>
       <p class="card__subtitle">
-        Tu as déjà un compte /
+        Vous avez déjà un compte ? /
         <span class="card__cta"
           ><router-link to="/">Se connecter</router-link></span
         >
@@ -22,7 +22,7 @@
           v-model="username"
           class="form-row__input"
           type="text"
-          placeholder="Username"
+          placeholder="Nom d'utilisateur"
           required
         />
       </div>
@@ -45,7 +45,7 @@
         />
       </div>
       <div class="form-row form-row__required" v-if="!checkInputs">
-        Tous les champs sont recquis !
+        Tous les champs sont requis
       </div>
       <div class="form-row">
         <input
@@ -76,7 +76,6 @@ export default {
   },
   methods: {
     signUp: async function() {
-      console.log("Signing-up !");
 
       if (this.username === "" || this.email === "" || this.password === "") {
         this.checkInputs = false;
@@ -95,7 +94,7 @@ export default {
 
         console.log(response);
         console.log(
-          `User: ${response.data.username}, email: ${response.data.email} is SIGNED-UP !`
+          `Utilisateur: ${response.data.username}, email: ${response.data.email} enregistré !`
         );
 
         this.$router.push({ name: "Login" });
@@ -117,12 +116,12 @@ export default {
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  background: var(--white);
+  background: $white;
 }
 .card__loginLogo {
   width: 70vw;
   max-width: 450px;
-  margin-bottom: var(--spaceMed);
+  margin-bottom: $spaceMed;
 }
 
 .form-row {
@@ -135,24 +134,24 @@ export default {
 }
 
 .form-row__input {
-  padding: var(--spaceSml);
+  padding: $spaceSml;
   border: none;
   border-radius: 8px;
-  background: var(--lightGrey);
+  background: $lightGrey;
   font-weight: 500;
-  font-size: var(--body-firstFont);
+  font-size: $body-firstFont;
   flex: 1;
   min-width: 100px;
   color: black;
 }
 
 .form-row__input::placeholder {
-  color: var(--greenLight);
+  color: $greenLight;
   opacity: 0.5;
 }
 
 .form-row__required {
-  color: var(--red);
+  color: $red;
   font-weight: 600;
 }
 
@@ -165,27 +164,31 @@ export default {
 }
 
 .card__title {
-  color: var(--darkgrey);
-  font-size: var(--headingThird);
+  color: $darkgrey;
+  font-size: $headingThird;
   font-weight: 900;
-  margin-bottom: var(--spaceSml);
+  margin-bottom: $spaceSml;
   opacity: 0.9;
 }
 
 .card__title--username {
-  margin-left: var(--spaceSml);
-  color: var(--greenLight);
+  margin-left: $spaceSml;
+  color: $greenLight;
+}
+
+.card_title--accent{
+  font-size:2rem;
 }
 
 .card__subtitle {
-  color: var(--MedGrey);
+  color: $MedGrey;
   font-size: 15px;
   font-weight: 500;
-  margin-bottom: var(--spaceLrg);
+  margin-bottom: $spaceLrg;
 }
 
 .button {
-  background: var(--greenLight);
+  background: $greenLight;
   color: white;
   border-radius: 8px;
   font-weight: 800;
@@ -196,7 +199,7 @@ export default {
   transition: 0.3s background-color;
 }
 .card__cta {
-  color: var(--greenLight);
+  color: $greenLight;
   font-weight: 800;
   transition: opacity 0.3s ease-in-out;
 }
@@ -206,7 +209,7 @@ export default {
 }
 .button:hover {
   cursor: pointer;
-  background: var(--greenPrimary);
+  background: $greenPrimary;
 }
 .button--disabled {
   background: #cecece;
@@ -216,4 +219,5 @@ export default {
   cursor: not-allowed;
   background: #cecece;
 }
+
 </style>

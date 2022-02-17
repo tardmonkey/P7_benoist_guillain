@@ -119,8 +119,12 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import "../variables.scss";
+@import "../mixins.scss";
+
 #comment {
-  margin-top: var(--spaceMed);
+  margin-top: $spaceMed;
 }
 
 .comment__content {
@@ -129,26 +133,26 @@ export default {
 
 .comment__contentHeader {
   display: flex;
-  margin-bottom: var(--spaceMed);
+  margin-bottom: $spaceMed;
 }
 
 .comment__content--Title {
-  margin-right: var(--spaceSml);
+  margin-right: $spaceSml;
 }
 
 .comment__user--Bold {
-  color: var(--darkgrey);
+  color: $darkgrey;
   font-weight: 800;
 }
 
 .comment__user--BoldAlt {
-  color: var(--darkgrey);
+  color: $darkgrey;
   font-weight: 800;
 }
 
 .comment__user--Regular {
-  color: var(--darkgrey);
-  font-size: var(--comment-firstFont);
+  color: $darkgrey;
+  // font-size: $comment-firstFont;
   font-weight: 500;
 }
 
@@ -156,26 +160,26 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spaceSml);
+  margin-bottom: $spaceSml;
 }
 
 .comment__userContainer {
-  height: var(--spaceMed);
+  height: $spaceMed;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .comment__userPicture {
-  width: var(--spaceMed);
-  height: var(--spaceMed);
+  width: $spaceMed;
+  height: $spaceMed;
   border-radius: 100%;
-  margin-right: var(--spaceSml);
+  margin-right: $spaceSml;
 }
 
 .comment__date {
-  height: var(--spaceMed);
-  color: var(--MedGrey);
+  height: $spaceMed;
+  color: $MedGrey;
 }
 
 .comment__textContent {
@@ -198,7 +202,7 @@ export default {
   display: none;
   width: calc(100% - 45px);
   margin-left: 45px;
-  margin-top: var(--spaceSml);
+  margin-top: $spaceSml;
 }
 
 .comment__addComment--active {
@@ -208,31 +212,31 @@ export default {
 }
 
 .form-row__input {
-  padding: var(--spaceSml);
-  background: var(--lightGrey);
+  padding: $spaceSml;
+  background: $lightGrey;
   font-weight: 500;
-  font-size: var(--comment-firstFont);
+  // font-size: $comment-firstFont;
   width: calc(100% - 45px - 45px);
   min-width: 100px;
-  color: var(--MedGrey);
+  color: $MedGrey;
   border-radius: 8px;
   border: 2px solid transparent;
 }
 
 .form-row__input::placeholder {
-  color: var(--MedGrey);
+  color: $MedGrey;
 }
 
 .form-row__input:focus {
-  color: var(--darkgrey);
-  border: 2px solid var(--greenLight);
+  color: $darkgrey;
+  border: 2px solid $greenLight;
 }
 
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--greenLight);
+  background: $greenLight;
   color: white;
   border-radius: 8px;
   font-weight: 800;
@@ -245,14 +249,14 @@ export default {
 
 .button:hover {
   cursor: pointer;
-  background: var(--greenPrimary);
+  background: $greenPrimary;
 }
 
 .comment__btnContainer {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: var(--spaceSml);
+  margin-top: $spaceSml;
 }
 
 .comment__btn--delete {
@@ -265,12 +269,12 @@ export default {
 .comment__icon--delete {
   width: auto;
   margin-right: 0;
-  height: var(--iconSize);
-  fill: var(--MedGrey);
+  height: $iconSize;
+  fill: $MedGrey;
   transition: fill 0.2s ease-in-out;
 }
 
 .comment__icon--delete:hover {
-  fill: var(--greenLight);
+  fill: $greenLight;
 }
 </style>

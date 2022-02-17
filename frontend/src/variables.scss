@@ -1,3 +1,4 @@
+$white: #fff;
 $light: #efeff3;
 $lightGrey: #f2f2f2;
 $MedGrey: #bcbcbc;
@@ -5,12 +6,14 @@ $dark: #2e2e30;
 $darkgrey: #3d3c3e;
 $red: #d1515a;
 $blue: #091f43;
-$greenLight: #6d9773;
-$greenSecond: #6d9773;
-$greenPrimary: #0c3b2e;
+$greenLight: #7FDBFF;
+$greenSecond: #0074D9;
+$greenPrimary: #001f3f;
+$primaryFilter : invert(79%) sepia(48%) saturate(1876%) hue-rotate(174deg) brightness(106%) contrast(107%);
 $beige: #bb8a52;
 $yellow: #ffba00;
 // /* font-sizes: */
+$firstFont: 1rem;
 $body-firstFont: 16px;
 $body-secondFont: 20px;
 $headingFirst: 25px;
@@ -19,6 +22,7 @@ $headingThird: 39.06px;
 $headingFourth: 48.83px;
 $largeFirst: 61.04px;
 $largeSecond: 76.29px;
+$comment-firstFont:2rem;
 /* margin & padding */
 $spaceSml: 15px;
 $spaceMed: 30px;

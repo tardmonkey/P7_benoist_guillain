@@ -4,7 +4,7 @@
       <textarea
         v-model="inputCreatePost"
         class=" form-row__input post__create--eraseTextInput"
-        :placeholder="`What's on your mind ` + [[loggedFirstname]] + `?`"
+        :placeholder="`Commencez à partager ` + [[loggedFirstname]] + `!`"
         cols="30"
         rows="2"
         oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
@@ -43,7 +43,7 @@
 
           <div class="button__inputContainer button__margin button__uploadAnim">
             <input type="file" id="actual-btn" hidden />
-            <label for="actual-btn">Choose File</label>
+            <label for="actual-btn">Choisir un fichier</label>
             <button class="button button__upload" aria-label="upload picture">
               <svg
                 class="button__icon button__uploadIcon"
@@ -120,7 +120,6 @@ export default {
   },
   methods: {
     async createPost() {
-      console.log("[=>] CREATE POST");
       const API_SERVER = "http://localhost:3000";
 
       try {
@@ -214,16 +213,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@import "../variables.scss";
+@import "../mixins.scss";
+
 .post__createContainer {
   width: 90vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--white);
+  background: white;
   border-radius: 20px;
   box-shadow: 5px 5px 16px 0 rgba(0, 0, 0, 0.15),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.1);
-  margin: var(--spaceMed) 0px var(--spaceLrg) 0px;
+  margin: $spaceMed 0px $spaceLrg 0px;
   animation: padding_out 0.3s ease-in-out forwards;
 }
 
@@ -237,7 +240,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: var(--spaceMed) 0px var(--spaceMed) 0px;
+  margin: $spaceMed 0px $spaceMed 0px;
 }
 
 .post__createFooterContainer {
@@ -251,19 +254,19 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: var(--spaceSml);
-  background: var(--white);
+  margin-top: $spaceSml;
+  background: white;
   animation: moves_out 0.3s ease-in-out forwards;
 }
 
 .post__createFooter--isActive {
-  margin-top: var(--spaceSml);
+  margin-top: $spaceSml;
   animation: moves_in 0.3s ease-in-out forwards;
 }
 
 .post__imgPlaceholder {
   opacity: 0;
-  margin-top: var(--spaceSml);
+  margin-top: $spaceSml;
 }
 
 .post__imgPlaceholder--isActive {
@@ -290,7 +293,7 @@ export default {
 
 @keyframes moves_in {
   0% {
-    margin-top: var(--spaceSml);
+    margin-top: $spaceSml;
   }
 
   100% {
@@ -302,7 +305,7 @@ export default {
     margin-top: calc(30px + 55px);
   }
   100% {
-    margin-top: var(--spaceSml);
+    margin-top: $spaceSml;
   }
 }
 @keyframes padding_in {
@@ -311,12 +314,12 @@ export default {
   }
 
   100% {
-    padding-bottom: calc(25px + var(--spaceSml) + var(--spaceMed));
+    padding-bottom: calc(25px + $spaceSml + $spaceMed);
   }
 }
 @keyframes padding_out {
   0% {
-    padding-bottom: calc(25px + var(--spaceSml) + var(--spaceMed));
+    padding-bottom: calc(25px + $spaceSml + $spaceMed);
   }
   100% {
     padding-top: 15px;
@@ -327,15 +330,15 @@ export default {
 .form-row__input {
   /* font opts */
   font-family: Avenir;
-  color: var(--MedGrey);
-  font-size: var(--comment-firstFont);
+  color: $MedGrey;
+  font-size: $comment-firstFont;
   font-weight: 500;
   /* size specs */
   width: 80vw;
   min-width: 100px;
-  padding: var(--spaceSml);
+  padding: $spaceSml;
   /* styles */
-  background: var(--light);
+  background: $light;
   border-radius: 8px;
   border: 2px solid transparent;
   /* text area opts */
@@ -345,21 +348,21 @@ export default {
 
 .form-row__input::placeholder {
   width: 80vw;
-  color: var(--MedGrey);
-  padding: var(spaceSml);
+  color: $MedGrey;
+  padding: $spaceSml;
 }
 
 .form-row__input:focus {
-  color: var(--darkgrey);
+  color: $darkgrey;
   background: white;
-  border: 2px solid var(--greenLight);
+  border: 2px solid $greenLight;
 }
 
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--greenLight);
+  background: $greenLight;
   color: white;
   border-radius: 55px;
   border: none;
@@ -370,51 +373,51 @@ export default {
 }
 
 .button__icon {
-  height: var(--spaceMed);
+  height: $spaceMed;
   width: auto;
   // border-radius: 55px;
 }
 .button__custom {
   border: none;
-  background: var(--light);
+  background: $light;
 }
 .button__upload {
   border: none;
-  background: var(--light);
+  background: $light;
 }
 
 .button__custom--isActive {
-  background: var(--red);
+  background: $red;
 }
 
 .button__send {
-  fill: var(--light);
+  fill: $light;
 }
 
 .button__img {
-  fill: var(--darkgrey);
+  fill: $darkgrey;
   transition: all 0.3s ease-in-out;
   transition-property: background, fill;
 }
 
 .button__img--isActive {
-  fill: var(--light);
+  fill: $light;
 }
 
 .button__imgAnim:hover {
-  background: var(--MedGrey);
+  background: $MedGrey;
 }
 .button__imgAnim:hover > .button__img {
-  fill: var(--light);
+  fill: $light;
 }
 
 .button__sendAnim:hover {
   cursor: pointer;
-  background: var(--greenPrimary);
+  background: $greenPrimary;
 }
 
 .button__margin {
-  margin-left: var(--spaceSml);
+  margin-left: $spaceSml;
   margin-right: auto;
 }
 
@@ -440,23 +443,23 @@ label {
 }
 
 .button__uploadIcon {
-  fill: var(--darkgrey);
+  fill: $darkgrey;
 }
 .button__uploadAnim:hover > .button__upload {
-  background: var(--MedGrey);
+  background: $MedGrey;
 }
 .button__uploadAnim:hover > .button__uploadIcon {
-  fill: var(--light);
+  fill: $light;
 }
 
 @media (max-width: 541px) {
   .post__createContainer {
     width: 100vw;
     margin: 0px;
-    border-top: 4px solid var(--lightGrey);
+    border-top: 4px solid $lightGrey;
     border-radius: 0px;
     box-shadow: none;
-    background: var(--white);
+    background: white;
   }
   .post__createWrapper {
     width: 90vw;

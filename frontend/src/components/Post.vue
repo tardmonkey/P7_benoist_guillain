@@ -24,7 +24,7 @@
       </div>
 
       <div v-if="post.imageUrl.length > 0" class="img__container">
-        <img :src="post.imageUrl" alt="Post picutre" />
+        <img :src="post.imageUrl" alt="post picture" />
       </div>
 
       <!-- like container -->
@@ -297,7 +297,6 @@ export default {
       return formatDate;
     },
     toggleUpdatePost() {
-      console.log("[=>] TOGGLE UPDATE POST");
       console.log(this.post.id);
 
       this.toggleUpdateMenuAnimation = !this.toggleUpdateMenuAnimation;
@@ -364,7 +363,6 @@ export default {
       }
     },
     likeFunction: async function() {
-      console.log("[=>] POST LIKES FUNC.");
 
       this.likeActive = !this.likeActive;
 
@@ -389,12 +387,10 @@ export default {
       }
     },
     toggleComment: async function() {
-      console.log("[=>] TOGGLE COMMENT Func.");
 
       this.commentActive = !this.commentActive;
     },
     createComment: async function() {
-      console.log("[=>] CREATE COMMENT");
 
       const newCommentContent = this.inputCreateComment;
 
@@ -431,6 +427,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@import "../variables.scss";
+@import "../mixins.scss";
+
 /* deleteModal Sect. */
 .deleteModal__container {
   position: absolute;
@@ -453,7 +453,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--red);
+  background:$red;
   opacity: 0.95;
   z-index: -1;
 }
@@ -469,7 +469,7 @@ export default {
 .deleteModal__content {
   font-size: 40px;
   font-weight: 900;
-  color: var(--light);
+  color:$light;
   text-align: center;
 }
 
@@ -477,11 +477,11 @@ export default {
   width: 80vw;
   display: flex;
   flex-direction: column;
-  margin-top: var(--spaceLrg);
+  margin-top:$spaceLrg;
 }
 
 .deleteModal__btnContainer > * {
-  margin-bottom: var(--spaceMed);
+  margin-bottom:$spaceMed;
 }
 
 .deleteModal__btnContainer:last-child {
@@ -493,7 +493,7 @@ export default {
   border-radius: 8px;
   font-weight: 800;
   font-size: 15px;
-  color: var(--red);
+  color:$red;
   border: none;
   width: 100%;
   padding: 16px;
@@ -503,8 +503,8 @@ export default {
 
 .deleteModal__btn--confirm:hover,
 .deleteModal__btn--delete:hover {
-  color: var(--light);
-  background: var(--greenLight);
+  color:$light;
+  background:$greenLight;
 }
 
 .deleteModal__container--isActive {
@@ -535,7 +535,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--spaceMed) 0px var(--spaceMed) 0px;
+  padding:$spaceMed 0px$spaceMed 0px;
 }
 
 .post__content--Wrapper {
@@ -543,9 +543,9 @@ export default {
 }
 
 .post__content--body {
-  color: var(--darkgrey);
+  color:$darkgrey;
   font-weight: 500;
-  margin-top: var(--spaceSml);
+  margin-top:$spaceSml;
 }
 
 .post__content--body:first-child {
@@ -558,7 +558,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: var(--spaceMed);
+  margin-top:$spaceMed;
 }
 
 .cta__private {
@@ -569,25 +569,25 @@ export default {
 
 .icon__tplt {
   width: auto;
-  height: var(--iconSize);
-  fill: var(--darkgrey);
-  margin-right: var(--spaceSml);
+  height:$iconSize;
+  fill:$darkgrey;
+  margin-right:$spaceSml;
   transition: fill 0.2s ease-in-out;
   cursor: pointer;
 }
 
 .post__content--Bold {
-  color: var(--greenLight);
+  color:$greenLight;
   font-weight: 800;
 }
 
 .post__user--Bold {
-  color: var(--darkgrey);
+  color:$darkgrey;
   font-weight: 800;
 }
 
 .post__user--BoldAlt {
-  color: var(--MedGrey);
+  color:$MedGrey;
   font-weight: 800;
 }
 
@@ -610,7 +610,7 @@ export default {
   left: 0;
   width: 0%;
   height: 2px;
-  background: var(--greenLight);
+  background:$greenLight;
   opacity: 0.8;
   animation: borderAnimation_out 0.1s ease-in-out;
 }
@@ -619,7 +619,7 @@ export default {
   opacity: 0.85;
 }
 .user__profileContainer:hover > .user__profileLink {
-  color: var(--greenLight);
+  color:$greenLight;
 }
 .user__profileContainer:hover > .user__profileLink::after {
   width: 100%;
@@ -647,7 +647,7 @@ export default {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  margin-bottom: var(--spaceMed);
+  margin-bottom:$spaceMed;
 }
 
 .post__content--Edit:hover {
@@ -660,21 +660,21 @@ export default {
   align-items: center;
 }
 .post__userPicture {
-  width: var(--spaceMed);
-  height: var(--spaceMed);
+  width:$spaceMed;
+  height:$spaceMed;
   border-radius: 100%;
-  margin-right: var(--spaceSml);
+  margin-right:$spaceSml;
 }
 
 .img__container {
   position: relative;
-  height: var(--imgMedium);
+  height:$imgMedium;
   border-radius: 20px;
   overflow: hidden;
 
   & img {
     object-fit: cover;
-    height: var(--imgMedium);
+    height:$imgMedium;
     width: 100%;
     opacity: 0.75;
   }
@@ -690,11 +690,11 @@ export default {
 }
 
 .icon__edit {
-  margin-right: var(--spaceSml);
+  margin-right:$spaceSml;
 }
 
 .icon__tplt:hover {
-  fill: var(--greenLight);
+  fill:$greenLight;
 }
 
 // UPDATE SECT.
@@ -708,7 +708,7 @@ export default {
   position: absolute;
   opacity: 0;
   width: 80vw;
-  margin-top: var(--spaceMed);
+  margin-top:$spaceMed;
   transition: 0.3s ease-in-out;
 }
 
@@ -726,16 +726,16 @@ export default {
 .form-row__input {
   /* font opts */
   font-family: Avenir;
-  color: var(--MedGrey);
-  font-size: var(--comment-firstFont);
+  color:$MedGrey;
+  font-size:$comment-firstFont;
   font-weight: 500;
   /* size specs */
   width: 80vw;
   min-width: 100px;
-  padding: var(--spaceSml);
+  padding:$spaceSml;
   margin-left: calc(30px + 15px);
   /* styles */
-  background: var(--light);
+  background: $light;
   border-radius: 8px;
   border: 2px solid transparent;
   /* text area opts */
@@ -745,28 +745,28 @@ export default {
 
 .form-row__input::placeholder {
   width: 80vw;
-  color: var(--MedGrey);
-  padding: var(spaceSml);
+  color: $MedGrey;
+  padding: $spaceSml;
 }
 
 .form-row__input:focus {
-  color: var(--darkgrey);
+  color: $darkgrey;
   background: white;
-  border: 2px solid var(--greenLight);
+  border: 2px solid $greenLight;
 }
 
 .form-row__input--updatePost {
   /* font opts */
   font-family: Avenir;
-  color: var(--MedGrey);
-  font-size: var(--comment-firstFont);
+  color: $MedGrey;
+  font-size: $comment-firstFont;
   font-weight: 500;
   /* size specs */
   width: 80vw;
   min-width: 100px;
-  padding: var(--spaceSml);
+  padding: $spaceSml;
   /* styles */
-  background: var(--light);
+  background: $light;
   border-radius: 8px;
   border: 2px solid transparent;
   /* text area opts */
@@ -776,14 +776,14 @@ export default {
 
 .form-row__input--updatePost::placeholder {
   width: 80vw;
-  color: var(--MedGrey);
-  padding: var(spaceSml);
+  color: $MedGrey;
+  padding: $spaceSml;
 }
 
 .form-row__input--updatePost:focus {
-  color: var(--darkgrey);
+  color: $darkgrey;
   background: white;
-  border: 2px solid var(--greenLight);
+  border: 2px solid $greenLight;
 }
 
 .updatePost__footer {
@@ -791,14 +791,14 @@ export default {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: var(--spaceSml);
+  margin-top: $spaceSml;
 }
 
 .updatePost__button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--greenLight);
+  background: $greenLight;
   color: white;
   border-radius: 55px;
   border: none;
@@ -809,16 +809,16 @@ export default {
   cursor: pointer;
 }
 .button__icon {
-  height: var(--spaceMed);
+  height: $spaceMed;
   width: auto;
   // border-radius: 55px;
 }
 .button__send {
-  fill: var(--light);
+  fill: $light;
 }
 .button__sendAnim:hover {
   cursor: pointer;
-  background: var(--greenPrimary);
+  background: $greenPrimary;
 }
 
 /* like section */
@@ -827,9 +827,9 @@ export default {
 }
 
 .like__container {
-  width: var(--iconSize);
-  height: var(--iconSize);
-  margin-right: var(--spaceSml);
+  width: $iconSize;
+  height: $iconSize;
+  margin-right: $spaceSml;
 }
 
 .icon__comment {
@@ -837,7 +837,7 @@ export default {
 }
 
 .icon__comment--active {
-  fill: var(--greenLight);
+  fill: $greenLight;
   animation: pop_in 0.45s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
@@ -874,7 +874,7 @@ export default {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  background-size: var(--iconSize) var(--iconSize);
+  background-size: $iconSize $iconSize;
   transition: all 0.2s ease-in-out;
   transition-property: background-image, opacity;
   cursor: pointer;
@@ -926,20 +926,20 @@ export default {
 /* COMMENT SECTION */
 
 .comment__section {
-  margin-top: var(--spaceMed);
+  margin-top: $spaceMed;
 }
 
 .comment__contentHeader {
   display: flex;
-  margin-bottom: var(--spaceMed);
+  margin-bottom: $spaceMed;
 }
 
 .comment__content--Title {
-  margin-right: var(--spaceSml);
+  margin-right:$spaceSml;
 }
 
 .comment__user--Bold {
-  color: var(--darkgrey);
+  color: $darkgrey;
   font-weight: 800;
 }
 
@@ -948,22 +948,22 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: var(--spaceSml);
-  margin-bottom: var(--spaceSml);
+  margin-top: $spaceSml;
+  margin-bottom: $spaceSml;
 }
 
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--greenLight);
+  background: $greenLight;
   color: white;
   border-radius: 55px;
   border: none;
   width: 55px;
   height: 55px;
   padding: 16px;
-  margin-left: var(--spaceSml);
+  margin-left: $spaceSml;
   transition: 0.3s background-color;
 }
 
@@ -978,7 +978,7 @@ export default {
 
   .img__container {
     position: relative;
-    height: var(--imgMedium);
+    height: $imgMedium;
     border-radius: 0px;
     overflow: hidden;
     width: 100vw;

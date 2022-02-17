@@ -90,7 +90,10 @@ export default {
 </script>
 
 <style lang="scss">
-/* NAV STYLING */
+
+@import "../mixins.scss";
+
+
 .nav__container {
   position: relative;
   display: flex;
@@ -98,7 +101,7 @@ export default {
   align-items: center;
   width: 100vw;
   height: 80px;
-  background: var(--white);
+  background: white;
   /* border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px; */
   /* box-shadow: 5px 5px 16px 0 rgba(0, 0, 0, 0.15),
@@ -115,13 +118,13 @@ nav {
 .nav__logocontainer {
   height: 60px;
   width: 200px;
-  background-image: url(../../images/logo-greenLight.svg);
+  background-image: url(../../images/logo-groupomania.svg);
   background-repeat: no-repeat;
   background-position: center;
   transition: background-image 0.2s ease-in-out;
 }
 .nav__logocontainer:hover {
-  background-image: url(../../images/logo-light.svg);
+  background-image: url(../../images/logo-groupomania.svg);
 }
 
 .nav__menucontainer {
@@ -132,14 +135,14 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: var(--spaceMed);
-  background: var(--greenLight);
+  margin-left: $spaceMed;
+  background: $greenLight;
   padding: 15px 25px;
-  border-radius: var(--spaceMed);
+  border-radius: $spaceMed;
 }
 .nav__static li {
-  margin-right: var(--spaceSml);
-  filter: var(--filterWhite);
+  margin-right: $spaceSml;
+  // filter: $filterWhite;
 }
 .nav__static li:last-child {
   margin-right: 0;
@@ -151,7 +154,7 @@ nav {
   align-items: center;
 }
 .nav__responsive li {
-  margin-right: var(--spaceMed);
+  margin-right: $spaceMed;
   cursor: pointer;
 }
 .nav__responsive li:last-child {
@@ -163,8 +166,8 @@ nav {
 }
 
 .nav__iconlist li {
-  height: var(--iconSize);
-  width: var(--iconSize);
+  height: $iconSize;
+  width: $iconSize;
   display: flex;
   justify-self: center;
   align-items: center;
@@ -172,13 +175,13 @@ nav {
 
 /* ICONS SETTINGS starts here */
 .nav__responsive li {
-  filter: var(--filterDarkgrey);
+  // filter: $filterDarkgrey;
 }
 .icon__transition {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  background-size: var(--iconSize) var(--iconSize);
+  background-size: $iconSize $iconSize;
   transition: background-image 0.2s ease-in-out;
 }
 
@@ -257,11 +260,11 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--light);
+    background: $light;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     overflow: hidden;
-    background: var(--light);
+    background: $light;
     /* backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); */
     /* background-color: rgba(239, 239, 243, 0.3); */
