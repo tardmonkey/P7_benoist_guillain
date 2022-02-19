@@ -29,7 +29,7 @@ exports.signup = async function (req, res, next) {
 
   //Note : j'ai changé, le model regex email du module validator.js pour qu'il accepte les emails avec un point "a.a@g.a"
 
-  let profilepicDefault = "../../frontend/images/profilepicturedefault.png"
+  let profilepicDefault = "https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg"
   
   try {
     const hash = await bcrypt.hash(req.body.password, 10)

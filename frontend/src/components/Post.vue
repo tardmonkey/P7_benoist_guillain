@@ -137,17 +137,17 @@
         >
           <div class="deleteModal__wrapper">
             <div class="deleteModal__content">
-              Are you sure you want to delete this post?
+              Êtes-vous sûr de voulori supprimer ce post ?
             </div>
             <div class="deleteModal__btnContainer">
               <button @click="deletePost()" class="deleteModal__btn--confirm">
-                Yes
+                Oui
               </button>
               <button
                 @click="deleteActive = false"
                 class="deleteModal__btn--delete"
               >
-                No
+                Non
               </button>
             </div>
           </div>
@@ -341,11 +341,9 @@ export default {
       this.inputCreatePost = "";
     },
     toggleDeletePost: function() {
-      console.log("[=>] TOGGLE DELETE POST");
       this.deleteActive = !this.deleteActive;
     },
     deletePost: async function() {
-      console.log("[=>] DELETE POST");
 
       const API_SERVER = "http://localhost:3000/posts/";
 

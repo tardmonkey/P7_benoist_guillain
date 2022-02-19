@@ -92,7 +92,6 @@ export default {
       return formatDate;
     },
     deleteComment: async function() {
-      console.log("[=>] DELETE COMMENT");
 
       console.log(this.comment);
 

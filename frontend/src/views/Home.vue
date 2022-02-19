@@ -104,19 +104,19 @@ export default {
     background: $greenLight;
     overflow-x: hidden;
     overflow-y: hidden;
-    z-index: 9999999;
+    z-index: 3;
     opacity: 1;
   }
   50% {
     opacity: 1;
   }
-
-  99% {
+99% {
     opacity: 0;
     overflow-x: hidden;
     overflow-y: hidden;
     background: $greenLight;
   }
+  
   100% {
     z-index: -1;
     opacity: 0;
@@ -159,14 +159,14 @@ export default {
     }
   }
 }
+
+//Animation des cartes de commentaires
 @keyframes blendIn {
   0% {
-    transform: translateY(50px);
+    transform: translateY(500px);
     opacity: 0;
   }
-  0% {
-    transform: translateY(20px);
-  }
+  
   100% {
     transform: translateY(0px);
     opacity: 1;

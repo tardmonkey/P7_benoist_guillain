@@ -7,12 +7,13 @@
       class="profilepage__nav--icon"
       :class="{ 'profilepage__nav--icon--isActive': toggleNavIcon }"
     >
-      <router-link to="/home" class="" aria-label="Back to home"
+      <router-link to="/home" class="" aria-label="Retour au menu principal"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
           width="8.4667mm"
           height="8.4667mm"
           viewBox="0 0 24 24"
+          
         >
           <path
             d="M15,20.67a.7467.7467,0,0,1-.53-.22L7.95,13.93a2.7349,2.7349,0,0,1,0-3.86l6.52-6.52A.75.75,0,1,1,15.53,4.61L9.01,11.13a1.2354,1.2354,0,0,0,0,1.7393L15.53,19.39A.75.75,0,0,1,15,20.67Z"
@@ -61,21 +62,17 @@
         <div class="deleteUser__container">
           <div class="deleteUser__card">
             <div class="deleteUser__cardContent">
-              Are you sure you want to permanently delete your profile
-              <span class="deleteUser__username">{{
-                splitUsername(username)
-              }}</span>
-              ?
+              Ce profil sera supprimé, l'action est irréversible, êtes-vous sûr de vouloir continuer ?
             </div>
             <div class="deleteUser__btnContainer">
               <button @click="deleteUser()" class="button deleteUser__btn--yes">
-                Yes, I'm leaving
+                Oui
               </button>
               <button
                 @click="removeToggleConfirm()"
                 class="button deleteUser__btn--no"
               >
-                No, I'll stay around here
+                Non
               </button>
             </div>
           </div>
@@ -91,8 +88,8 @@
 
         <div class="setting__menuHeader">
           <div class="card__title">
-            Hey {{ splitUsername(username) }}, <br />
-            update your profile!
+            Bonjour {{ username }}, <br />
+            mettez à jour votre profil !
           </div>
         </div>
 
@@ -146,7 +143,7 @@
                 class="button btn__updateUser"
                 :class="{ 'button--disabled': !checkInputs }"
               >
-                <span>Update</span>
+                <span>Mêtre à jour</span>
               </button>
             </div>
             <!-- delete Btn -->
@@ -174,11 +171,10 @@
           class="profile__picture"
         />
         <img v-else :src="picture" alt="" class="profile__picture" /> -->
-        <img :src="picture" alt="" class="profile__picture" />
+        <img :src="picture" alt="Photo de profil"  class="profile__picture" />
       </div>
       <div class="profile__username">{{ username }}</div>
       <div class="profile__infos">{{ email }}</div>
-      <div class="profile__infos">User id: {{ userId }}</div>
       <div class="profilepage__header--background"></div>
     </div>
     <!-- content -->
@@ -194,9 +190,9 @@
             <div class="userpost__wrapper">
               <span class="userpost__title"
                 ><span class="userpost__title--accent"
-                  >{{ splitUsername(username) }}'s</span
+                  >{{ username }}</span
                 >
-                latest activity:</span
+                activité récente:</span
               >
             </div>
           </div>
@@ -231,7 +227,7 @@ export default {
       picture: "",
       bio: "",
       createdAt: "",
-      defaultPicture: require("../../images/blankprofilepicture.png"),
+      defaultPicture: require("../../images/profilepicturedefault.png"),
       disableProfile: false,
       toggleSettingsIconAnimation: false,
       toggleSettingsIconColor: false,
@@ -262,6 +258,12 @@ export default {
 
       return formatDate;
     },
+    /**
+ * Charge les posts
+ *
+ * @param : none
+ * @return {data} posts
+ */
     async loadPosts() {
       const API_SERVER = "http://localhost:3000";
 
@@ -295,6 +297,12 @@ export default {
       }
     },
 
+/**
+ * Charger le profil utilisateur avec toutes ses données
+ *
+ * @param : none
+ * @return {data} infos user
+ */
     loadProfile: async function() {
       const API_SERVER = "http://localhost:3000/users/";
 
@@ -315,11 +323,8 @@ export default {
         this.errors.push(error);
       }
     },
-    splitUsername(username) {
-      const splittedUser = username.split(" ");
-      const firstName = splittedUser[0];
-      return firstName;
-    },
+
+
     toggleMenu: function() {
       this.toggleSettingsIconAnimation = !this.toggleSettingsIconAnimation;
 
@@ -330,7 +335,6 @@ export default {
       this.toggleMenuContainer = !this.toggleMenuContainer;
     },
     updateUser: async function() {
-      console.log("[=>] UPDATE USER");
 
       // UPDATED USERNAME
       let updatedUsername = this.newUsername;
@@ -454,7 +458,7 @@ export default {
         "deleteUser__messageContent--isActive"
       );
       deleteUserCard.classList.toggle("deleteUserCard--isActive");
-      messageContainer.innerHTML = `We're sad to see you go ${this.username}`;
+      messageContainer.innerHTML = `Ce fut un plaisir ${this.username}`;
 
       const loggedUser = localStorage.getItem("userId");
       // const parsedUser = parseInt(loggedUser, 10);
@@ -574,7 +578,7 @@ export default {
   left: 0;
   width: 100%;
   height: 400px;
-  background-image: url(https://i.pinimg.com/originals/e2/a9/08/e2a90803d8b2b37474d8135aeeee3dd3.png);
+  background-color: $light;
   background-size: cover;
   z-index: -1;
 }

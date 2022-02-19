@@ -223,6 +223,7 @@ export default {
   width: 70vw;
   max-width: 450px;
   margin-bottom:$spaceMed;
+  
 }
 
 .form-row {

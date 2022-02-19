@@ -13,28 +13,28 @@
                 @click="scrollToTop()"
                 to="/home"
                 class="icon__home icon__transition icon__mobile"
-                aria-label="Back to top"
+                aria-label="Haut de page"
               ></router-link>
             </li>
             <li>
               <router-link
                 to="/search"
                 class="icon__search icon__transition"
-                aria-label="Browse or search our users"
+                aria-label="Rechercher un utilisateur"
               ></router-link>
             </li>
             <li>
               <router-link
                 to="/home"
                 class="icon__message icon__transition"
-                aria-label="Send a message"
+                aria-label="Envoyer un message"
               ></router-link>
             </li>
             <li>
               <router-link
                 :to="{ name: 'Profile', params: { id: userId } }"
                 class="icon__profile icon__transition"
-                aria-label="Go to my profile"
+                aria-label="Allez à mon profil"
               ></router-link>
             </li>
           </ul>
@@ -122,10 +122,10 @@ nav {
   background-repeat: no-repeat;
   background-position: center;
   transition: background-image 0.2s ease-in-out;
+  
+  
 }
-.nav__logocontainer:hover {
-  background-image: url(../../images/logo-groupomania.svg);
-}
+
 
 .nav__menucontainer {
   display: flex;
