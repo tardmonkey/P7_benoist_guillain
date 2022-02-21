@@ -10,7 +10,7 @@
     <div class="card__body">
       <div class="card">
         <div class="card__loginLogo">
-          <img src="../../images/logo-groupomania.svg" id="imgLogo"/>
+          <img src="../../images/logos/icon-above-font.png" id="imgLogo"/>
         </div>
         <h1 class="card__title">
           Connectez vous
@@ -147,6 +147,7 @@ export default {
   }
 }
 
+
 .homepage__onLoad--container {
   position: relative;
   top: 0;
@@ -216,14 +217,17 @@ export default {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  width: 100vw;
+  
   background:white;
 }
 .card__loginLogo {
-  width: 70vw;
-  max-width: 450px;
-  margin-bottom:$spaceMed;
-  
+  display:flex;
+  align-items: center;
+  justify-content: center;
+ img{
+   height: 18em;
+   padding-bottom:1rem;
+ }
 }
 
 .form-row {
@@ -260,10 +264,10 @@ export default {
 
 .card {
   max-width: 90vw;
-  width: 540px;
+  width: 24vw;
   background: white;
-  border-radius: 16px;
-  padding: 32px;
+  border-radius: 1rem;
+  
 }
 .card__title {
   color:$darkgrey;

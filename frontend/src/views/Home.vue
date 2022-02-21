@@ -14,6 +14,7 @@
       <!-- create post component -->
 
       <!-- Post component -->
+      <div class="post__wrapper">
       <Post
         v-for="post in posts"
         :key="post.id"
@@ -21,6 +22,7 @@
         class="post__container profile__contentContainer--animation"
         v-on:postUpdated="handlePostUpdated"
       />
+      </div>
       <!-- Post component -->
     </div>
   </div>
@@ -86,7 +88,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
 
 @import "../variables.scss";
 
@@ -128,14 +130,18 @@ export default {
 }
 
 .homepage__container {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: $spaceMed 0px $spaceMed 0px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:0;
+  margin:0;
 }
 .homepage__wrapper {
-  width: 90vw;
+  width: 50vw;
+}
+
+.post__wrapper{
+  
 }
 
 .post__container {

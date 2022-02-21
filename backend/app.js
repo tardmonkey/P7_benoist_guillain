@@ -1,8 +1,7 @@
-// [=>] IMPORT SECT.
-// -
+
 const express = require("express");
 const cookieParser = require("cookie-parser");
-var cors = require("cors");
+const cors = require("cors");
 
 const userRoutes = require("./routes/userRoutes");
 const postRoutes = require("./routes/postRoutes");
@@ -16,33 +15,27 @@ const path = require("path");
 // Full doc => https://helmetjs.github.io/
 const helmet = require("helmet");
 
-// [=>] Create & Execute express App
-// -
 const app = express();
 
-// app.use(cors());
+
 
 //CORS
 //  CORS
 //    CORS
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  // res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content, Content-type, Accept, Authorization, Cookie",
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, PATCH, OPTIONS"
-  );
-  next();
-});
+var whitelist = ['http://localhost:8080/*', 'http://localhost:3000/*']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+ 
+//gérer les cors dynamiquement
+app.use(cors());
 
-
-
-// for parsing body application/json
 app.use(express.json());
 
 // cookie Parser
@@ -58,6 +51,4 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
-// [=>] EXPORT App
-// -
 module.exports = app;

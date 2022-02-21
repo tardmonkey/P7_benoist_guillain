@@ -4,7 +4,6 @@ const dotEnv = require("dotenv").config({ path: "./config/.env" })
 
 exports.findAll = async function (req, res, next) {
   try {
-    console.log("=> findAll function")
 
     const posts = await Post.findAll({
       order: [["createdAt", "DESC"]],
@@ -23,7 +22,6 @@ exports.findAll = async function (req, res, next) {
 
 exports.findOne = async function (req, res, next) {
   try {
-    console.log("=> findOne function")
 
     let id = req.params.id
 
@@ -38,7 +36,6 @@ exports.findOne = async function (req, res, next) {
 
 
 exports.findByUser = async function (req, res, next) {
-  console.log("=> findByUser function")
 
   try {
     const posts = await Post.findAll({
@@ -56,25 +53,9 @@ exports.findByUser = async function (req, res, next) {
   }
 }
 
-// [=>] CREATE Post
-// -
-// exports.createOne = async function (req, res, next) {
-//   console.log("=> Create Post Function")
 
-//   try {
-//     const post = await Post.create({
-//       content: req.body.content,
-//       imageUrl: req.body.imageUrl,
-//       UserId: req.body.userId,
-//     })
-//     res.status(201).json(post)
-//   } catch (error) {
-//     res.status(500).json({ message: error.message })
-//   }
-// }
 
 exports.createOne = async function (req, res, next) {
-  console.log("=> Create Post Function")
 
   let postObject = req.body
 

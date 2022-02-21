@@ -1,9 +1,7 @@
 <template>
   <!-- post tplt -->
   <div class="post__content--Container">
-    <div class="post__content--Wrapper">
-      <div class="post__content--header">
-        <div class="post__userContainer">
+    <div class="post__userContainer">
           <router-link
             :to="{ name: 'Profile', params: { id: post.User.id } }"
             class="user__profileContainer"
@@ -17,11 +15,23 @@
               post.User.username
             }}</span></router-link
           >
+      
+    <div class="post__content--Wrapper">
+    
+      <div class="post__content--header">
+      
+        <p class="post__content--body">
+        {{ post.content }}
+      </p>
+        </div>
+        
         </div>
         <span class="post__user--BoldAlt">{{
           dateFormatter(post.createdAt)
         }}</span>
       </div>
+
+      
 
       <div v-if="post.imageUrl.length > 0" class="img__container">
         <img :src="post.imageUrl" alt="post picture" />
@@ -29,9 +39,10 @@
 
       <!-- like container -->
       <!-- like container -->
+      
       <div class="cta__container">
         <!--<Like :postId="postId" />-->
-
+      
         <div class="cta__public">
           <div class="like__container">
             <div
@@ -126,7 +137,7 @@
               />
             </svg>
           </div>
-        </div>
+          
       </div>
 
       <transition name="fade">
@@ -154,9 +165,7 @@
         </div>
       </transition>
 
-      <p class="post__content--body">
-        {{ post.content }}
-      </p>
+      
 
       <!-- edit Post tplt -->
       <div class="updatePost__relativeContainer">
@@ -166,6 +175,7 @@
           :class="{ 'toggleUpdateMenu--isActive': toggleUpdateMenuAnimation }"
         >
           <textarea
+            
             v-model="inputCreatePost"
             class=" form-row__input--updatePost updatePost__eraseTextInput"
             :placeholder="post.content"
@@ -529,34 +539,45 @@ export default {
 }
 
 .post__content--Container {
-  width: 90vw;
   display: flex;
+  flex-direction:column;
   justify-content: center;
   align-items: center;
-  padding:$spaceMed 0px$spaceMed 0px;
+  .img__container{
+    display:flex;
+    justify-content:center;
+    width:90%;
+    background-color:$lightGrey;
+    border-radius:5%;
+    img{
+      width:80%;
+      height:80%;
+    }
+  }
 }
 
 .post__content--Wrapper {
-  width: 80vw;
+  padding:1rem;
+  width:90%;
 }
 
 .post__content--body {
+  margin-top:30%;
   color:$darkgrey;
-  font-weight: 500;
-  margin-top:$spaceSml;
+  font-weight: bold;
+  font-size:1.5rem;
 }
 
-.post__content--body:first-child {
-  padding-right: 15px;
-}
+
 
 // CTA SECTION
 .cta__container {
-  width: 80vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-top:$spaceMed;
+  margin:2rem;
+  width:90%;
+
 }
 
 .cta__private {
@@ -580,13 +601,15 @@ export default {
 }
 
 .post__user--Bold {
-  color:$darkgrey;
+  color:$greenSecond;
   font-weight: 800;
 }
 
 .post__user--BoldAlt {
   color:$MedGrey;
   font-weight: 800;
+  width:100%;
+  
 }
 
 .user__profileContainer {
@@ -645,7 +668,6 @@ export default {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  margin-bottom:$spaceMed;
 }
 
 .post__content--Edit:hover {
@@ -654,8 +676,12 @@ export default {
 
 .post__userContainer {
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin-top:1rem;
+  margin-bottom:1rem;
+  gap:12vw;
+  width:100%;
+
 }
 .post__userPicture {
   width:$spaceMed;
@@ -664,28 +690,7 @@ export default {
   margin-right:$spaceSml;
 }
 
-.img__container {
-  position: relative;
-  height:$imgMedium;
-  border-radius: 20px;
-  overflow: hidden;
 
-  & img {
-    object-fit: cover;
-    height:$imgMedium;
-    width: 100%;
-    opacity: 0.75;
-  }
-}
-.img__container::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: coral;
-  opacity: 0.15;
-  z-index: 1;
-}
 
 .icon__edit {
   margin-right:$spaceSml;
@@ -965,45 +970,17 @@ export default {
   transition: 0.3s background-color;
 }
 
-@media (max-width: 541px) {
-  .post__content--Container {
-    width: 100vw;
-  }
-
-  .post__content--Wrapper {
-    width: 90vw;
-  }
-
-  .img__container {
-    position: relative;
-    height: $imgMedium;
-    border-radius: 0px;
-    overflow: hidden;
-    width: 100vw;
-    transform: translateX(-5vw);
-  }
-
-  .cta__container {
-    width: 90vw;
-  }
-
-  .form-row__input,
-  .form-row__input--updatePost,
-  .form-row__input::placeholder,
-  .updatePost__footer {
-    width: 90vw;
-  }
-
-  .commentCreate__container {
-    width: 90vw;
-  }
-
-  .deleteModal__container {
-    border-radius: 0px;
-  }
-
-  .deleteModal__wrapper {
-    width: 90vw;
-  }
+@media (max-width: 1025px){
+ 
+  .post__userContainer {
+  gap:8vw;
 }
+}
+@media (max-width: 1025px){
+  
+  .post__userContainer {
+  gap:5vw;
+}
+}
+
 </style>

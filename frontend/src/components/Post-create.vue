@@ -2,6 +2,7 @@
   <div class="post__createContainer">
     <div class="post__createWrapper">
       <textarea
+        maxlength="255"
         v-model="inputCreatePost"
         class=" form-row__input post__create--eraseTextInput"
         :placeholder="`Commencez à partager ` + [[loggedFirstname]] + `!`"
@@ -13,14 +14,14 @@
         <input
           v-model="inputImageUrl"
           class="form-row__input post__imgPlaceholder post__create--eraseImgInput"
-          placeholder="Please paste your image url here"
+          placeholder="Collez l'url de l'image ici"
         />
         <div class="post__createFooterSpacer"></div>
         <div class="post__createFooter">
           <button
             @click.prevent="toggleImgInput('value1')"
             class="button button__custom button__imgAnim"
-            aria-label="toggle picture upload"
+            aria-label="Ouvrir l'envoi d'image"
           >
             <svg
               class="button__icon button__img"
@@ -41,36 +42,7 @@
           </button>
           <!-- upload image sect -->
 
-          <div class="button__inputContainer button__margin button__uploadAnim">
-            <input type="file" id="actual-btn" hidden />
-            <label for="actual-btn">Choisir un fichier</label>
-            <button class="button button__upload" aria-label="upload picture">
-              <svg
-                class="button__icon button__uploadIcon"
-                xmlns="http://www.w3.org/2000/svg"
-                width="8.4667mm"
-                height="8.4667mm"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  class="cls-1"
-                  d="M15,22.75H9c-5.4321,0-7.75-2.3174-7.75-7.75V9C1.25,3.5677,3.5679,1.25,9,1.25h6c5.4326,0,7.75,2.3179,7.75,7.75v6C22.75,20.433,20.4326,22.75,15,22.75Zm-6-20C4.3857,2.75,2.75,4.3856,2.75,9v6c0,4.6143,1.6357,6.25,6.25,6.25h6c4.6143,0,6.25-1.6357,6.25-6.25V9c0-4.6143-1.6357-6.25-6.25-6.25Z"
-                />
-                <path
-                  class="cls-1"
-                  d="M15,10.26a.7467.7467,0,0,1-.53-.22L12,7.5707,9.53,10.04A.75.75,0,0,1,8.47,8.98l3-3a.75.75,0,0,1,1.0605,0l3,3A.75.75,0,0,1,15,10.26Z"
-                />
-                <path
-                  class="cls-1"
-                  d="M12,15.26a.75.75,0,0,1-.75-.75v-8a.75.75,0,1,1,1.5,0v8A.75.75,0,0,1,12,15.26Z"
-                />
-                <path
-                  class="cls-1"
-                  d="M12,18.23a19.6852,19.6852,0,0,1-6.2378-1.0088.75.75,0,1,1,.4756-1.4219,18.3143,18.3143,0,0,0,11.5249,0,.7495.7495,0,1,1,.4746,1.4219A19.68,19.68,0,0,1,12,18.23Z"
-                />
-              </svg>
-            </button>
-          </div>
+          
 
           <!-- upload image sect -->
 
@@ -212,13 +184,12 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
 
 @import "../variables.scss";
 @import "../mixins.scss";
 
 .post__createContainer {
-  width: 90vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -235,16 +206,31 @@ export default {
 }
 
 .post__createWrapper {
-  width: 80vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: $spaceMed 0px $spaceMed 0px;
+  width:80%;
+  
+  textarea{
+    overflow:hidden;
+    font-family: Helvetica;
+    color: $MedGrey;
+    font-size: 1.5rem;
+    width: 100%;
+    background: $light;
+    resize: none;
+
+  }
+
 }
 
 .post__createFooterContainer {
   position: relative;
+  input{
+    width:100%;
+  }
 }
 
 .post__createFooter {
@@ -326,30 +312,12 @@ export default {
   }
 }
 
-/* TEXT AREA OPTIONS */
-.form-row__input {
-  /* font opts */
-  font-family: Avenir;
-  color: $MedGrey;
-  font-size: $comment-firstFont;
-  font-weight: 500;
-  /* size specs */
-  width: 80vw;
-  min-width: 100px;
-  padding: $spaceSml;
-  /* styles */
-  background: $light;
-  border-radius: 8px;
-  border: 2px solid transparent;
-  /* text area opts */
-  outline: none;
-  resize: none;
-}
+
 
 .form-row__input::placeholder {
   width: 80vw;
   color: $MedGrey;
-  padding: $spaceSml;
+  padding: 0.2rem;
 }
 
 .form-row__input:focus {
@@ -421,11 +389,6 @@ export default {
   margin-right: auto;
 }
 
-.button__inputContainer {
-  position: relative;
-  width: 55px;
-  height: 55px;
-}
 
 label {
   position: absolute;
