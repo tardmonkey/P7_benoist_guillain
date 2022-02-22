@@ -13,23 +13,23 @@ $primaryFilter : invert(79%) sepia(48%) saturate(1876%) hue-rotate(174deg) brigh
 $beige: #bb8a52;
 $yellow: #ffba00;
 // /* font-sizes: */
-$firstFont: 1rem;
-$body-firstFont: 16px;
-$body-secondFont: 20px;
-$headingFirst: 25px;
-$headingSecond: 31.25px;
-$headingThird: 39.06px;
-$headingFourth: 48.83px;
-$largeFirst: 61.04px;
-$largeSecond: 76.29px;
-$comment-firstFont:2rem;
+$firstFont: clamp(0.55rem, 2.5vw, 1rem);
+$body-firstFont: clamp(0.55rem, 2.5vw, 1rem);
+$body-secondFont: clamp(0.6rem, 2.5vw, 1.2rem);
+$headingFirst: clamp(0.8rem, 2.5vw, 1.5rem);;
+$headingSecond: clamp(1rem, 2.5vw, 1.8rem);
+$headingThird: clamp(1.2rem, 2.5vw, 2rem);
+$headingFourth: clamp(2rem, 2.5vw, 2.5rem);
+$largeFirst: clamp(2.2rem, 2.5vw, 2.8rem);
+$largeSecond: clamp(3rem, 2.5vw, 3.5rem);
+$comment-firstFont:clamp(1rem, 2.5vw, 2rem);
 /* margin & padding */
-$spaceSml: 15px;
-$spaceMed: 30px;
-$spaceLrg: 60px;
-$maxWidth: 540px;
+$spaceSml: 1rem;
+$spaceMed: 2rem;
+$spaceLrg: 3rem;
+$maxWidth: 15rem;
 /* icon size */
-$iconSize: 20px;
+$iconSize: 1.2rem;
 /* post img */
-$imgMedium: 300px;
-$imgLarge: 400px;
+$imgMedium: 8.3rem;
+$imgLarge: 11rem;

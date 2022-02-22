@@ -609,6 +609,7 @@ export default {
   color:$MedGrey;
   font-weight: 800;
   width:100%;
+  font-size:$firstFont;
   
 }
 

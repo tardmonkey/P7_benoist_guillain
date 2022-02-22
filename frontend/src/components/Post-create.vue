@@ -40,11 +40,7 @@
               />
             </svg>
           </button>
-          <!-- upload image sect -->
-
-          
-
-          <!-- upload image sect -->
+     
 
           <button
             @click="createPost()"
@@ -93,12 +89,12 @@ export default {
   methods: {
     async createPost() {
       const API_SERVER = "http://localhost:3000";
-
+    
       try {
         const loggedUserId = localStorage.getItem("userId");
         const postContent = await this.inputCreatePost;
         const postImage = await this.inputImageUrl;
-
+  
         const response = await axios.post(
           API_SERVER + `/posts`,
           {
@@ -217,7 +213,7 @@ export default {
     overflow:hidden;
     font-family: Helvetica;
     color: $MedGrey;
-    font-size: 1.5rem;
+    font-size: $body-secondFont;
     width: 100%;
     background: $light;
     resize: none;
@@ -243,6 +239,18 @@ export default {
   margin-top: $spaceSml;
   background: white;
   animation: moves_out 0.3s ease-in-out forwards;
+  button{
+    background:$greenLight;
+    border-radius:50%;
+    height:3.5rem;
+    width:3.5rem;
+    &:first-child {
+      background-color:$light;
+
+      svg{fill:$greenLight}
+    }
+    
+  }
 }
 
 .post__createFooter--isActive {
@@ -326,36 +334,19 @@ export default {
   border: 2px solid $greenLight;
 }
 
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $greenLight;
-  color: white;
-  border-radius: 55px;
-  border: none;
-  width: 55px;
-  height: 55px;
-  padding: 16px;
-  transition: 0.3s background-color;
-}
-
 .button__icon {
   height: $spaceMed;
   width: auto;
   // border-radius: 55px;
 }
-.button__custom {
-  border: none;
-  background: $light;
-}
+
 .button__upload {
   border: none;
   background: $light;
 }
 
 .button__custom--isActive {
-  background: $red;
+  background: $greenLight;
 }
 
 .button__send {
