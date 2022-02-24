@@ -224,8 +224,12 @@ export default {
 
 .post__createFooterContainer {
   position: relative;
+  width:100%;
   input{
     width:100%;
+    border: black solid 2px;
+    
+
   }
 }
 
@@ -246,10 +250,15 @@ export default {
     width:3.5rem;
     &:first-child {
       background-color:$light;
-
       svg{fill:$greenLight}
     }
-    
+    &:nth-child(2):hover {
+      background-color:$light;
+      .button__send{
+        fill:$greenLight;
+          }
+
+    }
   }
 }
 
@@ -351,7 +360,10 @@ export default {
 
 .button__send {
   fill: $light;
+
 }
+
+
 
 .button__img {
   fill: $darkgrey;
@@ -363,11 +375,11 @@ export default {
   fill: $light;
 }
 
-.button__imgAnim:hover {
-  background: $MedGrey;
+.post__createFooter button:hover{
+  background: $greenLight;
 }
-.button__imgAnim:hover > .button__img {
-  fill: $light;
+.post__createFooter button:hover > .button__img {
+  fill: white;
 }
 
 .button__sendAnim:hover {

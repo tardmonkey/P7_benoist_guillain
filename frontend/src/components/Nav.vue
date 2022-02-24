@@ -23,13 +23,7 @@
                 aria-label="Rechercher un utilisateur"
               ></router-link>
             </li>
-            <li>
-              <router-link
-                to="/home"
-                class="icon__message icon__transition"
-                aria-label="Envoyer un message"
-              ></router-link>
-            </li>
+            
             <li>
               <router-link
                 :to="{ name: 'Profile', params: { id: userId } }"
@@ -41,19 +35,13 @@
         </div>
         <div class="nav__static">
           <ul class="nav__iconlist">
-            <li>
-              <router-link
-                to="/home"
-                class="icon__notifications icon__transition"
-                aria-label="Notifications"
-              ></router-link>
-            </li>
+            
             <li>
               <router-link
                 @click="logoutUser()"
                 to="/"
                 class="icon__logout icon__transition"
-                aria-label="Logout"
+                aria-label="Deconnexion"
               ></router-link>
             </li>
           </ul>
@@ -208,7 +196,7 @@ nav {
 .icon__home:hover,
 .icon__home.router-link-active,
 .icon__home.router-link-exact-active {
-  background-image: url(../../images/icons/icon-bold/home-1.svg);
+  background-image: url(../../images/icons/icon-bold/arrow-up-solid.svg);
 }
 .icon__search:hover {
   background-image: url(../../images/icons/icon-bold/search-normal-1.svg);

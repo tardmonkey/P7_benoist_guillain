@@ -17,18 +17,19 @@
           >
       
     <div class="post__content--Wrapper">
-    
+    <div class="post__content--arrow"></div>
       <div class="post__content--header">
       
         <p class="post__content--body">
         {{ post.content }}
       </p>
+      <span class="post__user--BoldAlt">{{
+          dateFormatter(post.createdAt)
+        }}</span>
         </div>
         
         </div>
-        <span class="post__user--BoldAlt">{{
-          dateFormatter(post.createdAt)
-        }}</span>
+        
       </div>
 
       
@@ -148,7 +149,7 @@
         >
           <div class="deleteModal__wrapper">
             <div class="deleteModal__content">
-              Êtes-vous sûr de voulori supprimer ce post ?
+              Supprimer ce post ?
             </div>
             <div class="deleteModal__btnContainer">
               <button @click="deletePost()" class="deleteModal__btn--confirm">
@@ -449,7 +450,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
   overflow: hidden;
   z-index: 100;
 }
@@ -467,7 +467,7 @@ export default {
 }
 
 .deleteModal__wrapper {
-  width: 80vw;
+  width: 10vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -475,14 +475,16 @@ export default {
 }
 
 .deleteModal__content {
-  font-size: 40px;
+  font-size: $body-secondFont;
   font-weight: 900;
   color:$light;
   text-align: center;
+  width:90vw;
+
 }
 
 .deleteModal__btnContainer {
-  width: 80vw;
+  width: 30vw;
   display: flex;
   flex-direction: column;
   margin-top:$spaceLrg;
@@ -544,6 +546,7 @@ export default {
   justify-content: center;
   align-items: center;
   .img__container{
+    margin-top:1rem;
     display:flex;
     justify-content:center;
     width:90%;
@@ -557,15 +560,33 @@ export default {
 }
 
 .post__content--Wrapper {
-  padding:1rem;
-  width:90%;
+  display:flex;
+
+ width:100%;
+ 
+ background:$light;
+ border-radius:1rem;
+ 
+ 
+  .post__content--arrow{
+  position:relative;
+  bottom:1vh;
+  left:45%;
+  width: 0; 
+  height: 0; 
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid $light;}
+
+//  overflow:hidden;
 }
 
 .post__content--body {
-  margin-top:30%;
+  width:40vw;
   color:$darkgrey;
   font-weight: bold;
-  font-size:1.5rem;
+  font-size:$body-secondFont;
+  word-break: break-all;
 }
 
 
@@ -573,10 +594,11 @@ export default {
 // CTA SECTION
 .cta__container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin:2rem;
-  width:90%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin: 2rem;
+    width: 90%;
+    align-content: center;
 
 }
 
@@ -606,8 +628,8 @@ export default {
 }
 
 .post__user--BoldAlt {
+  padding:0.5rem;
   color:$MedGrey;
-  font-weight: 800;
   width:100%;
   font-size:$firstFont;
   
@@ -615,10 +637,11 @@ export default {
 
 .user__profileContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items:center;
+  
   transition: all 0.3s ease-in-out;
   transition-property: opacity, color, width;
+  padding:1rem;
 }
 
 .user__profileLink {
@@ -666,9 +689,8 @@ export default {
 
 .post__content--header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  flex-direction:column;
+  padding:0.5rem;
 }
 
 .post__content--Edit:hover {
@@ -676,19 +698,16 @@ export default {
 }
 
 .post__userContainer {
-  display: flex;
-  align-items: center;
-  margin-top:1rem;
-  margin-bottom:1rem;
-  gap:12vw;
-  width:100%;
-
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  max-width:50vw;
 }
 .post__userPicture {
   width:$spaceMed;
   height:$spaceMed;
   border-radius: 100%;
-  margin-right:$spaceSml;
+  margin-right:0.3rem;
 }
 
 
@@ -705,13 +724,13 @@ export default {
 
 .updatePost__relativeContainer {
   position: relative;
+ 
 }
 
 .updatePost__container {
   display: none;
   position: absolute;
   opacity: 0;
-  width: 80vw;
   margin-top:$spaceMed;
   transition: 0.3s ease-in-out;
 }
@@ -720,9 +739,8 @@ export default {
   display: bloc;
   position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   opacity: 1;
 }
 
@@ -760,22 +778,19 @@ export default {
 }
 
 .form-row__input--updatePost {
-  /* font opts */
-  font-family: Avenir;
+  
+  font-family: Helvetica;
   color: $MedGrey;
-  font-size: $comment-firstFont;
+  font-size: $body-secondFont;
   font-weight: 500;
-  /* size specs */
-  width: 80vw;
   min-width: 100px;
   padding: $spaceSml;
-  /* styles */
   background: $light;
   border-radius: 8px;
   border: 2px solid transparent;
-  /* text area opts */
   outline: none;
   resize: none;
+  overflow:hidden;
 }
 
 .form-row__input--updatePost::placeholder {
@@ -791,11 +806,8 @@ export default {
 }
 
 .updatePost__footer {
-  width: 80vw;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: $spaceSml;
+  
+  
 }
 
 .updatePost__button {
@@ -806,9 +818,9 @@ export default {
   color: white;
   border-radius: 55px;
   border: none;
-  width: 55px;
-  height: 55px;
-  padding: 16px;
+  width: 3rem;
+  height: 3rem;
+  padding: 1rem;
   transition: 0.3s background-color;
   cursor: pointer;
 }
@@ -930,30 +942,31 @@ export default {
 /* COMMENT SECTION */
 
 .comment__section {
-  margin-top: $spaceMed;
 }
 
 .comment__contentHeader {
   display: flex;
-  margin-bottom: $spaceMed;
 }
 
 .comment__content--Title {
-  margin-right:$spaceSml;
 }
 
 .comment__user--Bold {
   color: $darkgrey;
   font-weight: 800;
+  
 }
 
 .commentCreate__container {
-  width: 80vw;
+  width: 40%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: $spaceSml;
   margin-bottom: $spaceSml;
+  textarea{
+    overflow:hidden;
+  }
 }
 
 .button {
@@ -974,13 +987,13 @@ export default {
 @media (max-width: 1025px){
  
   .post__userContainer {
-  gap:8vw;
+  gap:0vw;
 }
 }
 @media (max-width: 1025px){
   
   .post__userContainer {
-  gap:5vw;
+  gap:0vw;
 }
 }
 

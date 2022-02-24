@@ -140,6 +140,7 @@ export default {
   width: 50vw;
 }
 
+
 .post__wrapper{
   
 }
@@ -185,7 +186,7 @@ export default {
   height: 30px;
 }
 
-@media (max-width: 541px) {
+@media (max-width: 800px) {
   .homepage__container {
     margin: 0px 0px 0px 0px;
   }

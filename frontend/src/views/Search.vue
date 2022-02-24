@@ -22,7 +22,7 @@
       <input
         v-model="searchText"
         class="searchUser"
-        placeholder="Looking for someone?"
+        placeholder="Chercher un utilisateur"
       />
     </div>
   </div>
@@ -194,48 +194,51 @@ export default {
 
 .user__profileContainer {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  
 }
 
 .user__profile,
 .user__pictureContainer {
-  width: 100vw;
-  height: 200px;
-  max-height: 50vh;
+  overflow:hidden;
+
+
 }
 
 .user__profile {
-  cursor: pointer;
-  opacity: 0.5;
+  
   transition: opacity 0.3s ease-in-out;
 }
 
 .user__profile:hover {
-  opacity: 1;
 }
 
 .user__pictureContainer {
   position: relative;
   overflow: hidden;
+  transition: all 0.2s ease-in;
+
 }
 
 .user__picture {
-  width: 100%;
-  min-width: 50vw;
-  height: 100%;
-  min-heigth: 50vw;
-  object-fit: cover;
+  width: 30vw;
+  height: 30vh;
+  object-fit:cover;
 }
-.user__pictureContainer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: $darkgrey;
-  opacity: 0.25;
-  z-index: 1;
+.user__pictureContainer:hover {
+  img{
+    filter: brightness(1.2)
+  }
+  
+  .user__username{
+    
+    transform:scale(1.5);
+
+  }
+  
 }
 
 .user__username {
@@ -248,6 +251,7 @@ export default {
   margin-bottom: $spaceMed;
   margin-left: $spaceMed;
   z-index: 1000;
+  transition: all 0.2s ease-in;
 }
 
 @media (max-width: 541px) {

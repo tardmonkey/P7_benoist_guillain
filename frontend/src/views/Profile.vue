@@ -100,7 +100,7 @@
               v-model="newUsername"
               class="form-row__input"
               type="text"
-              placeholder="Username"
+              placeholder="Nom d'utilisateur"
             />
           </div>
 
@@ -120,7 +120,7 @@
               v-model="newPicture"
               class="form-row__input"
               type="text"
-              placeholder="Profile picture url"
+              placeholder="URL de votre photo de profil"
             />
           </div>
 
@@ -143,7 +143,7 @@
                 class="button btn__updateUser"
                 :class="{ 'button--disabled': !checkInputs }"
               >
-                <span>Mêtre à jour</span>
+                <span>Mettre à jour</span>
               </button>
             </div>
             <!-- delete Btn -->
@@ -153,7 +153,7 @@
                 class="button btn__deleteUser"
                 :class="{ 'button--disabled': !checkInputs }"
               >
-                <span>Delete profile</span>
+                <span>Supprimer ce profil</span>
               </button>
             </div>
           </div>
@@ -862,13 +862,12 @@ svg {
 }
 
 .cta__container {
-  width: 80vw;
-  max-width: $maxWidth;
+  
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: $spaceMed;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  gap:1rem;
 }
 
 .button {
