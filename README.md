@@ -5,12 +5,12 @@
 #### Frontend
 
 * `npm i` // installer les dépendencies.
-* `npm run serve` // avoir accès au serveur de développement.
+* `npm run serve` // avoir accès au serveur vue CLI (development build)
 
 ####  Backend
 
 * `npm i` // installer les dépendencies.
-* `nodemon server` // lancer le server.
+* `nodemon server` // lancer le serveur.
 
 ---
 
