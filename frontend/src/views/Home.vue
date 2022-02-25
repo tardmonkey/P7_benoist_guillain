@@ -180,11 +180,7 @@ export default {
   }
 }
 
-.responsiveSpacer {
-  background: $light;
-  width: 100vw;
-  height: 30px;
-}
+
 
 @media (max-width: 800px) {
   .homepage__container {

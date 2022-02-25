@@ -113,17 +113,6 @@ export default {
         // emits eventListener to parent "Home"
         this.$emit("postUpdated");
 
-        // remove input datas
-        // const eraseTextInput = document.querySelector(
-        //   ".post__create--eraseTextInput"
-        // );
-        // const eraseImgInput = document.querySelector(
-        //   ".post__create--eraseImgInput"
-        // );
-
-        // eraseTextInput.value = "";
-        // eraseImgInput.value = "";
-
         this.inputCreatePost = "";
         this.inputImageUrl = "";
       } catch (error) {
@@ -131,7 +120,6 @@ export default {
       }
     },
     toggleImgInput: function() {
-      console.log("toggled");
 
       let isActive = "--isActive";
 

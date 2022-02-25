@@ -1,12 +1,5 @@
 <template><div>
-    <div class="homepage__onLoad" :class="{ 'homepage__onLoad--active': loginAnimation }">
-      <div class="homepage__onLoad--container" :class="{ 'homepage__onLoad--container--active': loginAnimation }">
-        <div class="homepage__onLoad--msg" :class="{ 'homepage__onLoad--msg--active': loginAnimation }">
-          Bonjour,<br />
-          {{ loggedUsername }}!
-        </div>
-      </div>
-    </div>
+    
     <div class="card__body">
       <div class="card">
         <div class="card__loginLogo">
@@ -113,7 +106,9 @@ export default {
 @import "../variables.scss";
 @import "../mixins.scss";
 
-
+.card{
+  margin:1rem;
+}
 
 .card__body {
   display: flex;
@@ -128,7 +123,7 @@ export default {
   align-items: center;
   justify-content: center;
  img{
-   height: 18em;
+   width:50%;
    padding-bottom:1rem;
  }
 }
@@ -211,6 +206,8 @@ export default {
   cursor: not-allowed;
   background: #cecece;
 }
+
+
 
 @media (max-width:1025px){
 

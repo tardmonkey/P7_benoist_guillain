@@ -622,16 +622,12 @@ export default {
 }
 
 .profilepage__container {
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background: white;
 }
 
-.profilepage__wrapper {
-  width: 90vw;
-}
 
 .profile__contentContainer {
   display: flex;
@@ -658,6 +654,7 @@ export default {
 }
 
 .profile__descriptionContainer {
+  
   font-size: $body-secondFont;
   font-weight: 600;
   color: $greenPrimary;
@@ -666,24 +663,12 @@ export default {
   width: 80vw;
 }
 
-.profile__activityContainer {
-  width: 100%;
-  margin-top: $spaceMed;
-}
-
-.profile__activityTitle {
-  font-size: $body-firstFont;
-  font-weight: 600;
-  color: $darkgrey;
-}
 
 .post__container {
-  background: white;
   border-radius: 20px;
   box-shadow: 5px 5px 16px 0 rgba(0, 0, 0, 0.15),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.1);
-  margin-top: $spaceMed;
-  // margin-bottom: $spaceMed;
+  width: 70%;
 }
 
 .post__container:first-child {
@@ -848,21 +833,9 @@ svg {
   width: 80vw;
 }
 
-.profile__pictureContainer--setting {
-  margin-bottom: $spaceLrg;
-}
-.profile__pictureSetting {
-  width: 150px;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 25px;
-  opacity: 0.9;
-  box-shadow: 5px 5px 16px 0 rgba(0, 0, 0, 0.2),
-    -8px -8px 12px 0 rgba(255, 255, 255, 0.6);
-}
+
 
 .cta__container {
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -880,7 +853,7 @@ svg {
   min-width: 100px;
   max-width: $maxWidth;
 
-  height: 50px;
+  height: 2rem;
   padding: 16px;
   transition: 0.3s background-color;
   cursor: pointer;

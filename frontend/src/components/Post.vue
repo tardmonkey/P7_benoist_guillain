@@ -20,7 +20,7 @@
     <div class="post__content--arrow"></div>
       <div class="post__content--header">
       
-        <p class="post__content--body">
+        <p class="post__content--body hidePostContent=">
         {{ post.content }}
       </p>
       <span class="post__user--BoldAlt">{{
@@ -35,7 +35,7 @@
       
 
       <div v-if="post.imageUrl.length > 0" class="img__container">
-        <img :src="post.imageUrl" alt="post picture" />
+        <img :src="post.imageUrl" alt="image du post" />
       </div>
 
       <!-- like container -->
@@ -57,8 +57,7 @@
           </div>
           <div>
             <svg
-              @click="toggleComment"
-              :class="{ 'icon__comment--active': commentActive }"
+              @click="toggleComment" :class="{ 'icon__comment--active': commentActive }"
               class="icon__tplt icon__comment"
               xmlns="http://www.w3.org/2000/svg"
               width="8.4667mm"
@@ -86,7 +85,7 @@
         </div>
 
         <div v-if="authUpdatePost" class="cta__private">
-          <div @click="toggleUpdatePost()" :key="post.id">
+          <div @click="toggleUpdatePost(); hidePostContent()" :key="post.id">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="8.4667mm"
@@ -231,7 +230,7 @@
             <textarea
               v-model="inputCreateComment"
               class=" form-row__input"
-              :placeholder="`What do you think ` + [[loggedFirstname]] + `?`"
+              placeholder="Commencez à commenter ici"
               cols="30"
               rows="1"
               oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
@@ -264,12 +263,18 @@
 </template>
 
 <script>
-// => Plugins
+
+//affichage date
 import * as moment from "moment";
+//config de moment
+import "moment/locale/fr"
+moment.locale("fr")
+
 import axios from "axios";
 
-// => Components
 import Comment from "@/components/Comment";
+
+
 
 export default {
   name: "Post",
@@ -302,18 +307,16 @@ export default {
   methods: {
     dateFormatter: function(date) {
       let formatDate = moment(date)
-        .startOf("hour")
+        .startOf("heure")
         .fromNow();
 
       return formatDate;
     },
     toggleUpdatePost() {
-      console.log(this.post.id);
 
       this.toggleUpdateMenuAnimation = !this.toggleUpdateMenuAnimation;
     },
     updatePost: async function(updatedContent) {
-      console.log("[=>] UPDATE POST");
 
       this.toggleUpdateMenuAnimation = false;
 
@@ -446,12 +449,13 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height:100%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   z-index: 100;
+  border-radius:20px;
 }
 
 .deleteModal__container::after {
@@ -461,13 +465,13 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background:$red;
+  background:$greenLight;
   opacity: 0.95;
   z-index: -1;
 }
 
 .deleteModal__wrapper {
-  width: 10vw;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -479,12 +483,11 @@ export default {
   font-weight: 900;
   color:$light;
   text-align: center;
-  width:90vw;
 
 }
 
 .deleteModal__btnContainer {
-  width: 30vw;
+  width: 20vw;
   display: flex;
   flex-direction: column;
   margin-top:$spaceLrg;
@@ -494,19 +497,17 @@ export default {
   margin-bottom:$spaceMed;
 }
 
-.deleteModal__btnContainer:last-child {
-  margin-bottom: 00px;
-}
+
 
 .deleteModal__btn--confirm,
 .deleteModal__btn--delete {
   border-radius: 8px;
   font-weight: 800;
-  font-size: 15px;
-  color:$red;
+  font-size: $firstFont;
+  color:$greenPrimary;
   border: none;
   width: 100%;
-  padding: 16px;
+  padding:0.7rem;
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
@@ -561,11 +562,9 @@ export default {
 
 .post__content--Wrapper {
   display:flex;
-
- width:100%;
- 
- background:$light;
- border-radius:1rem;
+  width:100%;
+  background:$light;
+  border-radius:1rem;
  
  
   .post__content--arrow{
@@ -720,28 +719,28 @@ export default {
   fill:$greenLight;
 }
 
-// UPDATE SECT.
+
 
 .updatePost__relativeContainer {
   position: relative;
- 
+  bottom:8rem;
+  right:8rem;
+  z-index:5;
 }
 
 .updatePost__container {
+  
   display: none;
-  position: absolute;
   opacity: 0;
   margin-top:$spaceMed;
   transition: 0.3s ease-in-out;
 }
 
 .toggleUpdateMenu--isActive {
-  display: bloc;
-  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   opacity: 1;
+  
 }
 
 /* TEXT AREA OPTIONS */
@@ -751,16 +750,10 @@ export default {
   color:$MedGrey;
   font-size:$comment-firstFont;
   font-weight: 500;
-  /* size specs */
   width: 80vw;
-  min-width: 100px;
-  padding:$spaceSml;
-  margin-left: calc(30px + 15px);
-  /* styles */
   background: $light;
   border-radius: 8px;
   border: 2px solid transparent;
-  /* text area opts */
   outline: none;
   resize: none;
 }
@@ -775,6 +768,7 @@ export default {
   color: $darkgrey;
   background: white;
   border: 2px solid $greenLight;
+  opacity:1;
 }
 
 .form-row__input--updatePost {
@@ -783,7 +777,7 @@ export default {
   color: $MedGrey;
   font-size: $body-secondFont;
   font-weight: 500;
-  min-width: 100px;
+  min-width: 40vw;
   padding: $spaceSml;
   background: $light;
   border-radius: 8px;
@@ -805,10 +799,6 @@ export default {
   border: 2px solid $greenLight;
 }
 
-.updatePost__footer {
-  
-  
-}
 
 .updatePost__button {
   display: flex;
@@ -965,7 +955,9 @@ export default {
   margin-top: $spaceSml;
   margin-bottom: $spaceSml;
   textarea{
+    display: flex;
     overflow:hidden;
+    font-size: $headingFirst;
   }
 }
 
