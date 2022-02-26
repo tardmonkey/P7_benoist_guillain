@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `bio` text COLLATE utf8_unicode_ci NOT NULL,
   `isAdmin` tinyint(1) NOT NULL DEFAULT '1',
-  `createAt` datetime NOT NULL,
+  `createdAt` datetime NOT NULL,
   `updateAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
