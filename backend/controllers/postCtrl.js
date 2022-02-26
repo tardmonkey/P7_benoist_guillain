@@ -123,10 +123,8 @@ exports.updateOne = async function (req, res, next) {
 //   }
 // }
 
-// [=>] DELETE Post
 // -
 exports.deleteOne = async function (req, res, next) {
-  console.log("=> DELETE POST Function")
 
   try {
     const post = await Post.findByPk(req.params.id)
@@ -135,4 +133,7 @@ exports.deleteOne = async function (req, res, next) {
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
+
+  // contrôle d'accès, vérifier userID || admin isAdmin
+
 }

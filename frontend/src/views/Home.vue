@@ -98,7 +98,7 @@ export default {
   height: 100%;
   background: $greenLight;
   z-index: 9999;
-  animation: slidesIn 1s forwards ease-in-out;
+  animation: slidesIn 0.3s forwards ease-in-out;
 }
 @keyframes slidesIn {
   0% {
@@ -158,7 +158,7 @@ export default {
 
 .profile__contentContainer--animation {
   opacity: 0;
-  animation: blendIn 1s forwards cubic-bezier(0.77, 0, 0.18, 1);
+  animation: blendIn 0.3s forwards cubic-bezier(0.77, 0, 0.18, 1);
   animation-delay: 0.5s;
   @for $i from 1 through 10 {
     &:nth-child(#{$i}) {

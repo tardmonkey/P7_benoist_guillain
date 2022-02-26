@@ -58,14 +58,21 @@ exports.login = async function (req, res, next) {
     const user = await User.findOne({ where: { email: email } })
 
     if (user == null) {
+      console.log("Utilisateur introuvable")
+      alert("Utilisateur introuvable")
       return res.status(401).json({ message: "User introuvable !" })
+      
     }
 
     const valid = await bcrypt.compare(req.body.password, user.password)
 
     if (!valid) {
+      console.log("Mot de passe inccorect")
+      alert("Mot de passe inccorect")
       return res.status(401).json({ message: "Password incorrect !" })
     }
+   
+    
 
     let token = await jwt.sign({ userId: user.id }, process.env.SECRET_TOKEN, {
       expiresIn: maxAgeToken,

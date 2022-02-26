@@ -177,7 +177,8 @@ export default {
 }
 
 .comment__date {
-  height: $spaceMed;
+  padding-left:1rem;
+  font-size:$firstFont;
   color: $MedGrey;
 }
 

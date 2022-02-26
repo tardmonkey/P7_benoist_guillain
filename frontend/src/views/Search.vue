@@ -209,8 +209,9 @@ export default {
 }
 
 .user__profile {
-  
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   transition: opacity 0.3s ease-in-out;
+  border-radius:1rem;
 }
 
 .user__profile:hover {
@@ -220,7 +221,8 @@ export default {
   position: relative;
   overflow: hidden;
   transition: all 0.2s ease-in;
-
+  
+  
 }
 
 .user__picture {
@@ -234,7 +236,7 @@ export default {
   }
   
   .user__username{
-    
+    color:red;
     transform:scale(1.5);
 
   }
@@ -252,6 +254,7 @@ export default {
   margin-left: $spaceMed;
   z-index: 1000;
   transition: all 0.2s ease-in;
+  color:black;
 }
 
 @media (max-width: 541px) {

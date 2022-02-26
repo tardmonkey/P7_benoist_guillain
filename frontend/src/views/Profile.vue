@@ -861,6 +861,7 @@ svg {
 
 .btn__updateUser {
   background: $greenSecond;
+  height:4rem;
 }
 
 .btn__updateUser:hover {
@@ -868,7 +869,8 @@ svg {
 }
 
 .btn__deleteUser {
-  background: $red;
+  background: $greenPrimary;
+  height:4rem;
 }
 
 .btn__deleteUser:hover {
