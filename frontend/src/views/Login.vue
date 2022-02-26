@@ -67,6 +67,7 @@ export default {
       if (this.email != "" && this.password != "") {
         return true;
       } else {
+        
         return false;
       }
     },
@@ -94,7 +95,9 @@ export default {
 
         setTimeout(() => this.$router.push({ path: "Home" }), 3000);
       } catch (error) {
-        this.errors.push(error);
+        alert("Nom d'utilisateur ou mot de passe invalide")
+        console.log({message : error})
+        
       }
     },
   },

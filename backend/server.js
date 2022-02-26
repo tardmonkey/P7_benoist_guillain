@@ -54,7 +54,4 @@ server.on("error", errorHandler);
 server.on("listening", listeningHandler);
 server.listen(port);
 
-// (async function () {
-//   await sequelize.sync({ alter: true }); 
-  
-// })();
+

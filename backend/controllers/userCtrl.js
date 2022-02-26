@@ -59,7 +59,7 @@ exports.login = async function (req, res, next) {
 
     if (user == null) {
       console.log("Utilisateur introuvable")
-      alert("Utilisateur introuvable")
+      
       return res.status(401).json({ message: "User introuvable !" })
       
     }

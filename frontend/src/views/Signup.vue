@@ -40,7 +40,7 @@
           v-model="password"
           class="form-row__input"
           type="password"
-          placeholder="Mot de passe"
+          placeholder="Mot de passe (8 caractères minimum)"
           required
         />
       </div>
@@ -99,7 +99,8 @@ export default {
 
         this.$router.push({ name: "Login" });
       } catch (error) {
-        this.errors.push(error);
+        alert("Email mot de passe invalide")
+        console.log({message : error})
       }
     },
   },
