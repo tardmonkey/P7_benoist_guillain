@@ -45,7 +45,7 @@
           <button
             @click="createPost()"
             class="button button__sendAnim"
-            aria-label="create post"
+            aria-label="Créer un post"
           >
             <svg
               class="button__icon button__send"

@@ -592,9 +592,7 @@ export default {
 
 // CTA SECTION
 .cta__container {
-  display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+  
     margin: 2rem;
     width: 90%;
     align-content: center;
@@ -603,7 +601,7 @@ export default {
 
 .cta__private {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -722,10 +720,9 @@ export default {
 
 
 .updatePost__relativeContainer {
-  position: relative;
-  bottom:8rem;
-  right:8rem;
-  z-index:5;
+  display:flex;
+  
+  
 }
 
 .updatePost__container {
@@ -737,17 +734,23 @@ export default {
 }
 
 .toggleUpdateMenu--isActive {
-  display: flex;
+  display:flex;
   align-items: center;
   opacity: 1;
-  
+  textarea{
+    opacity:1;
+    margin:1rem;
+   padding-bottom:3rem;
+    
+  }
+   
 }
 
 /* TEXT AREA OPTIONS */
 .form-row__input {
   /* font opts */
-  font-family: Avenir;
-  color:$MedGrey;
+  font-family: Helvetica;
+  color:black;
   font-size:$comment-firstFont;
   font-weight: 500;
   width: 80vw;
@@ -932,6 +935,7 @@ export default {
 /* COMMENT SECTION */
 
 .comment__section {
+  
 }
 
 .comment__contentHeader {
@@ -948,7 +952,7 @@ export default {
 }
 
 .commentCreate__container {
-  width: 40%;
+ width:40vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -957,7 +961,10 @@ export default {
   textarea{
     display: flex;
     overflow:hidden;
-    font-size: $headingFirst;
+    font-size: $body-secondFont;
+    text-align:left;
+    padding-bottom:2.5rem;
+    
   }
 }
 
@@ -981,12 +988,28 @@ export default {
   .post__userContainer {
   gap:0vw;
 }
-}
-@media (max-width: 1025px){
-  
-  .post__userContainer {
-  gap:0vw;
-}
+  .updatePost__relativeContainer{
+
+    textarea{
+      
+      margin:1rem;
+
+    }
+  }
 }
 
+
+@media(max-width:800px){
+
+  .commentCreate__container{
+    width:85vw
+  }
+  .updatePost__container{
+    width: 100vw;
+    textarea{
+      width:80vw;
+    }
+  }
+}
+  
 </style>

@@ -54,7 +54,7 @@
           :class="{ 'button--disabled': !signUp }"
           type="submit"
           value="Créer mon compte"
-          aria-label="sign-up"
+          aria-label="S'inscrire"
         />
       </div>
     </div>

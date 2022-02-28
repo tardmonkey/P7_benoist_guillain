@@ -26,7 +26,7 @@
           @click="deleteComment"
           v-if="authUpdateComment"
           class="comment__btn--delete"
-          aria-label="delete comment"
+          aria-label="Supprimer le commentaire"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

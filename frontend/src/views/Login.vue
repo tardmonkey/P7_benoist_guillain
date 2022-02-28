@@ -40,7 +40,7 @@
             @click="loginUser()"
             class="button"
             :class="{ 'button--disabled': !checkInputs }"
-            aria-label="login"
+            aria-label="Connexion"
           >
             <span>Connexion</span>
           </button>
