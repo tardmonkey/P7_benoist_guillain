@@ -208,15 +208,14 @@
           </div>
         </div>
       </div>
-      <!-- edit Post tplt -->
-      <!-- comment tplt -->
+    
       <div class="comment__section">
         <div
           v-if="this.post.Comments.length > 0"
           class="comment__contentHeader "
         >
           <div class="comment__content--Title comment__user--Bold">
-            Comments
+            Commentaires
           </div>
         </div>
         <Comment
@@ -256,10 +255,8 @@
           </div>
         </div>
       </div>
-      <!-- comment tplt -->
     </div>
   </div>
-  <!-- post tplt -->
 </template>
 
 <script>
@@ -325,7 +322,7 @@ export default {
         updatedContent == null ||
         updatedContent == undefined
       ) {
-        console.log("not enough content!");
+        console.log("pas assez de contenu");
         return;
       }
 
@@ -1000,6 +997,13 @@ export default {
 
 
 @media(max-width:800px){
+
+  .post__content--Wrapper{
+    width:80vw;
+    .post__content--body{
+      width:95%;
+    }
+  }
 
   .commentCreate__container{
     width:85vw
