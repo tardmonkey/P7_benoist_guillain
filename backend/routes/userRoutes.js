@@ -8,6 +8,7 @@ const router = express.Router()
 const userCtrl = require("../controllers/userCtrl.js")
 
 router.post("/signup", checkPassword, userCtrl.signup)
+
 router.post("/login", limit, userCtrl.login)
 router.post("/logout", authn, userCtrl.logout)
 

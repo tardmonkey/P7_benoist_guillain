@@ -6,4 +6,4 @@ const max = rateLimit({
 })
 
 
-module.exports = max
+module.exports = max 
