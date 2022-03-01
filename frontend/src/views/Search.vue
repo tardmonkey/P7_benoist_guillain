@@ -33,7 +33,7 @@
       <div v-for="user in itemsSearched" :key="user.id" class="user__profile">
         <router-link :to="{ name: 'Profile', params: { id: user.id } }">
           <div class="user__pictureContainer">
-            <img :src="user.picture" class="user__picture" />
+            <img :src="user.picture" class="user__picture" alt="photo de profil" />
             <div class="user__username">{{ user.username }}</div>
           </div>
         </router-link>

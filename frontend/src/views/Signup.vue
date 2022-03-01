@@ -2,7 +2,7 @@
   <div class="card__body">
     <div class="card">
       <div class="card__loginLogo">
-        <img src="../../images/logo-groupomania.svg" id="imgLogo"/>
+        <img src="../../images/logo-groupomania.svg" id="imgLogo" alt="logo groupomania"/>
       </div>
       <h1 class="card__title">
         Bonjour<span v-if="username" class="card__title--username">{{

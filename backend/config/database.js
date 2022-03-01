@@ -62,7 +62,9 @@ User.hasMany(Post, {
     allowNull: false,
   },
 });
+
 //belongsTo est une méthode de l'API Sequelize
+//Ca donnera "user_id"
 Post.belongsTo(User);
 
 User.hasMany(Comment, {

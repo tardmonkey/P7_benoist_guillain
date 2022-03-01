@@ -9,7 +9,7 @@
             <img
               :src="post.User.picture"
               class="post__userPicture"
-              alt="Post author picture"
+              alt="Photo de profile"
             />
             <span class="post__user--Bold user__profileLink">{{
               post.User.username
@@ -596,7 +596,7 @@ export default {
     margin: 2rem;
     width: 90%;
     align-content: center;
-
+    
 }
 
 .cta__private {

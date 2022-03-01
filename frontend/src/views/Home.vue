@@ -94,16 +94,16 @@ export default {
 
 .homepage__onLoad {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background: $greenLight;
+  width: 100vw;
+  height: 100vh;
+  background: black;
   z-index: 9999;
-  animation: slidesIn 0.3s forwards ease-in-out;
+  animation: slidesIn 1s forwards ease-in-out;
 }
 @keyframes slidesIn {
   0% {
     visibility: visible;
-    background: $greenLight;
+    background: black;
     overflow-x: hidden;
     overflow-y: hidden;
     z-index: 3;

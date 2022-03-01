@@ -9,7 +9,7 @@
           <img
             :src="comment.User.picture"
             class="comment__userPicture"
-            alt="Comment Author"
+            alt="Photo de profil"
           />
           <span class="comment__user--Bold">{{ comment.User.username }}</span>
         </router-link>

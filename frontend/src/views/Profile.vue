@@ -1,7 +1,7 @@
 <template>
   <div class="homepage__onLoad"></div>
 
-  <!-- nav -->
+  
   <div class="profilepage__nav">
     <div
       class="profilepage__nav--icon"
@@ -50,15 +50,13 @@
     </div>
   </div>
   <div class="profilepage__bodyWrapper">
-    <!-- nav -->
-
-    <!-- setting menu -->
+ 
     <div
       class="setting__menuContainer"
       :class="{ 'setting__menuContainer--isActive': toggleMenuContainer }"
     >
       <div class="setting__menuWrapper">
-        <!-- popup -->
+        
         <div class="deleteUser__container">
           <div class="deleteUser__card">
             <div class="deleteUser__cardContent">
@@ -77,14 +75,7 @@
             </div>
           </div>
         </div>
-        <!-- popup -->
-        <!-- profile picture container -->
-        <!--<div
-          class="profile__pictureContainer profile__pictureContainer--setting"
-        >
-          <img :src="picture" alt="" class="profile__pictureSetting" />
-        </div>-->
-        <!-- profile picture container -->
+       
 
         <div class="setting__menuHeader">
           <div class="card__title">
@@ -94,7 +85,7 @@
         </div>
 
         <div class="setting__menuBody">
-          <!-- username -->
+         
           <div class="form-row">
             <input
               v-model="newUsername"
@@ -104,7 +95,7 @@
             />
           </div>
 
-          <!-- bio -->
+       
           <div class="form-row">
             <input
               v-model="newBio"
@@ -114,7 +105,7 @@
             />
           </div>
 
-          <!-- profile picture -->
+         
           <div class="form-row">
             <input
               v-model="newPicture"
@@ -124,7 +115,6 @@
             />
           </div>
 
-          <!-- email -->
           <div class="form-row">
             <input
               v-model="newEmail"
@@ -134,9 +124,9 @@
             />
           </div>
 
-          <!-- cta container -->
+          
           <div class="cta__container">
-            <!-- update Btn -->
+        
             <div class="form-row__btn">
               <button
                 @click="updateUser()"
@@ -146,7 +136,7 @@
                 <span>Mettre à jour</span>
               </button>
             </div>
-            <!-- delete Btn -->
+           
             <div class="form-row__btn">
               <button
                 @click="toggleConfirm()"
@@ -157,20 +147,15 @@
               </button>
             </div>
           </div>
-          <!-- cta container -->
+          
         </div>
       </div>
     </div>
-    <!-- setting menu -->
+    
 
     <div class="profilepage__header">
       <div class="profile__pictureContainer">
-        <!-- <img
-          v-if="picture === null"
-          :src="defaultPicture"
-          class="profile__picture"
-        />
-        <img v-else :src="picture" alt="" class="profile__picture" /> -->
+       
         <img :src="picture" alt="Photo de profil"  class="profile__picture" />
       </div>
       <div class="profile__username">{{ username }}</div>
